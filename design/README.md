@@ -2,7 +2,7 @@
 
 Incluye en esta carpeta los archivos de tu propuesta de diseño
 
-![Init](img/LogInSignUp.PNG)
-![Details](img/Details.PNG)
-![MainScreenDetails](img/MainScreenWithDetails.PNG)
-![MainsCreen](img/MainScreen.jpg)
+![Cover](img/LogInSignUp.PNG)
+![Cover](img/Details.PNG)
+![Cover](img/MainScreenWithDetails.PNG)
+![Cover](img/MainScreen.jpg)

@@ -12,49 +12,44 @@ México ocupa el primer lugar en población de perros callejeros. La mayoría de
 Muchas crías sin esterilizar son abandonadas. Si sobreviven, en muchos casos se reproducen, naciendo otra generación de caninos a vivir en el exterior. El panorama de los perros callejeros que ingresan a un albergue no es más alentador. En promedio, de cada 10 perros que llegan a los distintos albergues públicos, 9 son sacrificados.
 
 ## Propuesta de solución
-PetRescue busca educar a la sociedad sobre la tenencia responsable a través de una plataforma que permita a los usuarios adoptar a un nuevo amigo y apoyar a través de donaciones voluntarias a refugios caninos. Cuando adoptamos un perrito, no sólo le aseguramos el cuidado y amor que no encontrará en la calle, sino también evitamos que toda una generación de perritos siga viviendo en esas condiciones.
+PetRescue busca educar a la sociedad sobre la tenencia responsable a través de una plataforma que permita a los usuarios adoptar a un nuevo amigo. Cuando adoptamos un perrito, no sólo le aseguramos el cuidado y amor que no encontrará en la calle, sino también evitamos que toda una generación de perritos siga viviendo en esas condiciones.
 
 ## Definición de requerimientos del MVP
 
 ### Requerimientos funcionales
 La aplicación deberá:
 
-- Permitir a refugios registrarse:
-  - El refugio deberá darse de alta incluyendo su nombre, correo, ubicación, identificación, teléfono, cuenta de paypal para hacer donaciones y algún documento que garantice su existencia. 
-  - Los datos de registro deben guardarse en firebase.
-  - El formulario de registro debe contar con validaciones.
-  - El diseño del formulario debe apegarse al elaborado.
-
 - Permitir a los nuevos usuarios registrarse:
-  - El usuario deberá registrarse utilizando nombre, correo, domicilio adjunto a un comprobante de domicilio, una identificación oficial, telefono y clave ó una cuenta de Google.
+  - El usuario deberá registrarse utilizando nombre, correo y clave ó una cuenta de Google.
   - Los datos de registro deben guardarse en firebase.
   - El formulario de registro debe contar con validaciones.
   - El diseño del formulario debe apegarse al elaborado.
 
-- Permitir a los usuarios/refugios registrados iniciar sesión:
+- Permitir a los usuarios registrados iniciar sesión:
   - El usuario podrá iniciar sesión utilizando correo y clave o su cuenta de Google, dependiendo de la forma en la que realizó su registro.
   - El inicio de sesión debe realizarse accediendo o verificando los datos almacenados en firebase.
   - El formulario de inicio de sesión debe contar con validaciones.
   - El diseño del formulario debe apegarse al elaborado.
 
 - Permitir a los usuarios ver la lista de caninos:
-  - El usuario podrá ver un listado con la imágen de cada canino, su nombre, y un icono que permita agregar sus favoritos.
+  - El usuario podrá ver un listado horizontal de cada refugio con la imágen de cada canino, su nombre (opcional) y un icono que permita agregar sus favoritos.
   - La información debe recuperarse desde firebase.
   - El diseño del listado debe apegarse al proporcionado.
 
+- Permitir a los usuarios ver su lista de favoritos.
+  - Mostrar un listado vertical de los caninos que ha marcado como favoritos el usuario.
+
+- Pemitir a los usuarios ver su perfil.
+  - El usuario podrá editar sus datos personales, su foto de perfil, su correo y su contraseña.
+
 - Permitir agregar nuevos caninos.
-  - El usuario deberá indicar un nombre del canino para identificarlo, imágenes claras del canino, vacunas, enfermedades, tamaño, aproximación de edad, raza y si está esterilizado.
+  - Cada refugio al agregar a un nuevo canino deberá especificar el nombre del canino para identificarlo, imágenes claras del canino, tamaño, aproximación de edad, raza y si está esterilizado.
   - La información debe guardarse en firebase.
   - El diseño para el registro de caninos debe apegarse al proporcionado.
 
 - Página de detalles:
   - El usuario podrá ver una foto del canino, con una descripción que incluya su nombre, sexo, vacunas, raza, edad, tamaño, si está esterilizado y si cuenta con alguna enfermedad.
-  - El usuario se podrá poner en contacto con la persona o refugio que realizó la publicación a través de un mensaje dentro de la aplicación.
-
-- Barra de tareas:
-  - Sección de donaciones. El usuario podrá hacer donaciones a los refugios que estén dados de alta en la aplicación a través de PayPal.
-  - Sección de favoritos. El usuario podrá ver un listado con los caninos que tenga en favoritos.
-  - Sección de mensajería. El usuario podrá ver los mensaje que tenga de sus publicaciones o peticiones.
+  - El usuario se podrá poner en contacto a través de un modal que incluirá la información del refugio que realizó la publicación.
 
 ### Requerimientos no funcionales
  - Base de datos

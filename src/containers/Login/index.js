@@ -1,8 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View,Text} from 'react-native';
+import { BackGorundForLogin, TextForLogin } from './styledComponents';
 
 const Login = () => {
-  return <View></View>;
+  return <BackGorundForLogin>
+    <TextForLogin>
+      LOGIN
+    </TextForLogin>
+  </BackGorundForLogin>;
 };
 
 export default Login;

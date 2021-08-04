@@ -1,8 +1,8 @@
 import React from 'react';
-import {Home} from './src/containers';
+import {Home, Login} from './src/containers';
 
 const App = () => {
-  return <Home />;
+  return <Login/>;
 };
 
 export default App;

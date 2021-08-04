@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import {MainContainerHome} from './styledComponents';
+import {MainContainerHome, TextCustom} from './styledComponents';
 
 const Home = () => {
   return (
     <MainContainerHome>
-      <Text>hello</Text>
+      <TextCustom>HOME</TextCustom>
     </MainContainerHome>
   );
 };

@@ -1,8 +1,9 @@
 import React from 'react';
-import {Home, Login} from './src/containers';
+import {StyleSheet, TextInput} from 'react-native';
+import {Home, Login, SignUp} from './src/containers';
 
 const App = () => {
-  return <Login/>;
+  return <SignUp />;
 };
 
 export default App;

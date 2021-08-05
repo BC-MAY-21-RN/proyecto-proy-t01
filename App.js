@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const listScreens = [
   {name: 'SignUp', component: SignUp},
   {name: 'LogIn', component: LogIn},
-  // {name: 'Home', component: Home}, 
+  // {name: 'Home', component: Home},
 ];
 
 const screens = listScreens.map(({name, component}) => (

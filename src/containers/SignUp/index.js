@@ -10,22 +10,22 @@ const SignUp = () => {
             <Formik>
             <View>
                <View>
-               <TextInputField label='Nombre'/>
+               <TextInputField label="Nombre"/>
                </View>
                 <View>
-                   <TextInputField label='Correo'/>
+                   <TextInputField label="Correo"/>
                 </View>
                 <View>
-                   <TextInputField label='Contraseña'/>
+                   <TextInputField label="Contraseña"/>
                 </View>
                 <View>
-                   <CheckBoxField label='Acepto los Terminos y Condiciones.'/>
+                   <CheckBoxField label="Acepto los Terminos y Condiciones."/>
                 </View>
                 <View>
-                   <CustomButton text='Registrarme'/>
+                   <CustomButton text="Registrarme"/>
                 </View>
                 <View>
-                   <CustomButton text='Registrarme con Google'/>
+                   <CustomButton text="Registrarme con Google"/>
                 </View>
                 </View>
             </Formik>

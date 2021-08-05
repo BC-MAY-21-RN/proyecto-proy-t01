@@ -1,4 +1,5 @@
+import CheckBoxField from './CheckBox';
+import TextInputField from './TextInput';
 import CustomButton from './CustomButton';
-import TextInput from './TextInput';
 
-export {CustomButton, TextInput};
+export {CheckBoxField, TextInputField, CustomButton};

@@ -8,26 +8,14 @@ const SignUp = () => {
     return (
         <SafeAreaView>
             <Formik>
-            <View>
                <View>
-               <TextInputField label="Nombre"/>
+                  <TextInputField label="Nombre"/>
+                  <TextInputField label="Correo"/>
+                  <TextInputField label="Contraseña"/>
+                  <CheckBoxField label="Acepto los Terminos y Condiciones."/>
+                  <CustomButton text="Registrarme"/>
+                  <CustomButton text="Registrarme con Google"/>
                </View>
-                <View>
-                   <TextInputField label="Correo"/>
-                </View>
-                <View>
-                   <TextInputField label="Contraseña"/>
-                </View>
-                <View>
-                   <CheckBoxField label="Acepto los Terminos y Condiciones."/>
-                </View>
-                <View>
-                   <CustomButton text="Registrarme"/>
-                </View>
-                <View>
-                   <CustomButton text="Registrarme con Google"/>
-                </View>
-                </View>
             </Formik>
         </SafeAreaView>
     );

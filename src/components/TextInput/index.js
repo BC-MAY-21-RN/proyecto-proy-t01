@@ -5,12 +5,10 @@ import { TextInputCustom } from './styledComponent';
 
 const TextInputField = ({label}) => {
     return (
-        <>
-            <View>
-                <Text>{label}</Text>
-                <TextInputCustom/>
-            </View>
-        </>
+        <View>
+            <Text>{label}</Text>
+            <TextInputCustom/>
+        </View>
     );
 };
 

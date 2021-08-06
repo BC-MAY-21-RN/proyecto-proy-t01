@@ -1,13 +1,27 @@
 import React from 'react';
-import {View,Text} from 'react-native';
-import { BackGorundForLogin, TextForLogin } from './styledComponents';
+import {View, SafeAreaView} from 'react-native';
+import {Formik} from 'formik';
+import Span from '../../i18n/es';
+import {TextInputField, CustomButton, TextLink} from '../../components';
 
-const Login = () => {
-  return <BackGorundForLogin>
-    <TextForLogin>
-      LOGIN
-    </TextForLogin>
-  </BackGorundForLogin>;
+const LogIn = ({navigation}) => {
+  return (
+    <SafeAreaView>
+      <Formik>
+        <View>
+          <TextInputField label={<Span text="email" />} />
+          <TextInputField label={<Span text="password" />} />
+          <CustomButton text={<Span text="login" />} />
+          <CustomButton text={<Span text="loginGoogle" />} />
+          <TextLink
+            navigation={navigation}
+            screen="SignUp"
+            text={<Span text="dontAccount" />}
+          />
+        </View>
+      </Formik>
+    </SafeAreaView>
+  );
 };
 
-export default Login;
+export default LogIn;

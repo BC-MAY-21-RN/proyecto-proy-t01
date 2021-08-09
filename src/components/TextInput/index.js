@@ -8,19 +8,30 @@ import Span from '../../i18n/es';
 
 const TextInputField = props => {
   console.log(props);
+  const {
+    label,
+    handleChange,
+    handleBlur,
+    values,
+    formControlName,
+    errors,
+    touched,
+  } = props;
+  console.log(label);
 
-  const {label} = props;
   return (
-    // <View>
-    //   <Text>{label}</Text>
-    //   <TextInputCustom />
-    // </View>
-
     <View>
       <Text>{label}</Text>
       <View>
-        <TextInputCustom />
-        {/*errors.name && touched.name && <Text>{errors.name}</Text>*/}
+        <TextInputCustom
+          name={formControlName}
+          onChangeText={handleChange(formControlName)}
+          onBlur={handleBlur(formControlName)}
+          value={values[formControlName]}
+        />
+        {errors[formControlName] && touched[formControlName] && (
+          <Text>{errors[formControlName]}</Text>
+        )}
       </View>
     </View>
   );

@@ -15,13 +15,28 @@ const SignUp = ({navigation}) => {
     <SafeAreaView>
       <Formik
         validationSchema={signUpValidationSchema}
-        initialValues={{name: '', email: '', password: '', agreeTerms: false}}
+        initialValues={{
+          name: '',
+          email: '',
+          password: '',
+          agreeTerms: false,
+        }}
         validateOnMount={true}
         onSubmit={values => console.log(values)}>
         {formProps => (
-          <View>
-            <TextInputField {...formProps} label={span('name')} />
-          </View>
+          <>
+            <TextInputField
+              {...formProps}
+              formControlName={'name'}
+              label={span('name')}
+            />
+
+            <TextInputField
+              {...formProps}
+              formControlName={'email'}
+              label={span('email')}
+            />
+          </>
         )}
       </Formik>
 

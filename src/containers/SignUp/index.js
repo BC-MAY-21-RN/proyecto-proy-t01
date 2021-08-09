@@ -27,47 +27,33 @@ const SignUp = ({navigation}) => {
           <>
             <TextInputField
               {...formProps}
-              formControlName={'name'}
+              formControlName={span('nameLow')}
               label={span('name')}
             />
 
             <TextInputField
               {...formProps}
-              formControlName={'email'}
+              formControlName={span('emailLow')}
               label={span('email')}
+            />
+
+            <TextInputField
+              {...formProps}
+              formControlName={'password'}
+              label={span('password')}
+            />
+
+            <CheckBoxField label={<Span text="terms" />} />
+            <CustomButton text={<Span text="register" />} />
+            <CustomButton text={<Span text="registerGoogle" />} />
+            <TextLink
+              navigation={navigation}
+              screen="LogIn"
+              text={<Span text="alreadyAccount" />}
             />
           </>
         )}
       </Formik>
-
-      {/*
-      <Formik
-      validationSchema={signUpValidationSchema}
-      initialValues={{name: '', email: '', password: '', agreeTerms: false}}
-      validateOnMount={true}
-      onSubmit={values => console.log(values)}> {
-        
-      }
-        (formProps) => (
-        <View>
-          <TextInputField {...formProps} label={<Span text="name" />} 
-
-
-</View> 
-
-<TextInputField label={<Span text="email" />} />
-          <TextInputField label={<Span text="password" />} />
-          <CheckBoxField label={<Span text="terms" />} />
-          <CustomButton text={<Span text="register" />} />
-          <CustomButton text={<Span text="registerGoogle" />} />
-          <TextLink
-            navigation={navigation}
-            screen="LogIn"
-            text={<Span text="alreadyAccount" />}
-            />
-        </View>
-        )}
-          */}
     </SafeAreaView>
   );
 };

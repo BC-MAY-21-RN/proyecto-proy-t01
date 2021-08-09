@@ -6,34 +6,23 @@ import {signUpValidationSchema} from './../../constants/schemas/signupSchema';
 import {Formik} from 'formik';
 import Span from '../../i18n/es';
 
-const TextInputField = ({
-  label,
-  handleChange,
-  handleBlur,
-  values,
-  errors,
-  touched,
-  name,
-  authError,
-}) => {
-  return (
-    <View>
-      <Text>{label}</Text>
-      <TextInputCustom />
-    </View>
+const TextInputField = props => {
+  console.log(props);
 
+  const {label} = props;
+  return (
     // <View>
     //   <Text>{label}</Text>
-    //   <View>
-    //     <TextInputCustom
-    //       label={<Span text="name" />}
-    //       onChangeText={handleChange('name')}
-    //       onBlur={handleBlur('name')}
-    //       value={values.name}
-    //     />
-    //     {errors.name && touched.name && <Text>{errors.name}</Text>}
-    //   </View>
+    //   <TextInputCustom />
     // </View>
+
+    <View>
+      <Text>{label}</Text>
+      <View>
+        <TextInputCustom />
+        {/*errors.name && touched.name && <Text>{errors.name}</Text>*/}
+      </View>
+    </View>
   );
 };
 

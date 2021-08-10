@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "762122167762",
+    "project_id": "pet-rescue-3bdb6",
+    "storage_bucket": "pet-rescue-3bdb6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762122167762:android:e40e2564af168d5e19140b",
+        "android_client_info": {
+          "package_name": "com.petrescue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762122167762-rbe58eldje888bfbrsguhsuo2k1h81fm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsxmoZ7AEPw_Odfh1fTnF32OlwOk93QUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762122167762-rbe58eldje888bfbrsguhsuo2k1h81fm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

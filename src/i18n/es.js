@@ -4,6 +4,8 @@ import I18n from 'react-native-i18n';
 I18n.fallbacks = true;
 I18n.translations = {
   en: {
+    nameLow: 'name',
+    emailLow: 'email',
     name: 'Nombre',
     email: 'Correo electrónico',
     password: 'Contraseña',
@@ -17,9 +19,8 @@ I18n.translations = {
     adopt: '¡Adopta un nuevo',
     friend: 'Amig',
     exclamation: '!',
-    welcome:'Bienvenido de',
+    welcome: 'Bienvenido de',
     new: 'nuev',
-    
   },
 };
 

@@ -13,7 +13,6 @@ import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
 
 const SignUp = ({navigation}) => {
   const [emailInUseError, setEmailInUseError] = useState(false);
-  
   const handleSignIn = values => {
     const {name, email, password} = values;
     signInWithNameEmailAndPassword(name, email, password)
@@ -30,9 +29,9 @@ const SignUp = ({navigation}) => {
       <Formik
         validationSchema={validationSchema}
         initialValues={{
-          name: 'Juan',
-          email: 'juan1@example.com',
-          password: 'Juan123%',
+          name: '',
+          email: '',
+          password: '',
           agreeTerms: true,
         }}
         validateOnMount={true}
@@ -56,9 +55,9 @@ const SignUp = ({navigation}) => {
               formControlName={span('passwordLow')}
               label={span('password')}
             />
-            <CheckBoxField 
+            <CheckBoxField
               {...formProps}
-              label={<Span text="terms" />} 
+              label={<Span text="terms" />}
               formControlName={span('agreeTermsLow')}
             />
 

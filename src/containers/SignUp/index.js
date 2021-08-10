@@ -21,8 +21,7 @@ const SignUp = ({navigation}) => {
           password: '',
           agreeTerms: false,
         }}
-        validateOnMount={true}
-        onSubmit={values => console.log(values)}>
+        validateOnMount={true}>
         {formProps => (
           <>
             <TextInputField

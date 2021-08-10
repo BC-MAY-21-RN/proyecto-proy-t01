@@ -7,7 +7,6 @@ import {Formik} from 'formik';
 import Span from '../../i18n/es';
 
 const TextInputField = props => {
-  console.log(props);
   const {
     label,
     handleChange,
@@ -17,7 +16,6 @@ const TextInputField = props => {
     errors,
     touched,
   } = props;
-  console.log(label);
 
   return (
     <View>

@@ -15,21 +15,24 @@ const TextInputField = props => {
     formControlName,
     errors,
     touched,
+    authError,
   } = props;
 
   return (
     <View>
-      <Text>{label}</Text>
       <View>
+        <Text>{label}</Text>
         <TextInputCustom
           name={formControlName}
           onChangeText={handleChange(formControlName)}
           onBlur={handleBlur(formControlName)}
           value={values[formControlName]}
-        />
-        {errors[formControlName] && touched[formControlName] && (
-          <Text>{errors[formControlName]}</Text>
-        )}
+          />
+          {errors[formControlName] && touched[formControlName] ? (
+            <Text>{errors[formControlName]}</Text>
+          ) : (
+            authError && <Text>{authError}</Text>
+          )}
       </View>
     </View>
   );

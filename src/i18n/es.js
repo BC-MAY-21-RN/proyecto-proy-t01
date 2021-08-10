@@ -6,8 +6,11 @@ I18n.translations = {
   en: {
     nameLow: 'name',
     emailLow: 'email',
+    passwordLow: 'password',
+    agreeTermsLow: 'agreeTerms',
     name: 'Nombre',
     email: 'Correo electrónico',
+    emailUsed: ' *Correo electrónico en uso',
     password: 'Contraseña',
     terms: 'Acepto los Terminos y Condiciones.',
     register: 'Registrarme',

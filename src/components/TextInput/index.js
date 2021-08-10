@@ -1,15 +1,16 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {Text, TextInput, View} from 'react-native';
-import { TextInputCustom } from './styledComponent';
+import {View} from 'react-native';
+import {TextInputCustom} from './styledComponent';
+import color from '../../constants/colors';
 
 const TextInputField = ({label}) => {
-    return (
-        <View>
-            <Text>{label}</Text>
-            <TextInputCustom/>
-        </View>
-    );
+  return (
+    <TextInputCustom
+      placeholder={label}
+      placeholderTextColor={color.ligh_grey}
+    />
+  );
 };
 
 export default TextInputField;

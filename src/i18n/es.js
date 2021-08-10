@@ -12,8 +12,14 @@ I18n.translations = {
     registerGoogle: 'Registrarme con Google',
     login: 'Iniciar sesión',
     loginGoogle: 'Iniciar sesión con Google',
-    alreadyAccount: 'Ya tienes una cuenta? Inicia sesión',
+    alreadyAccount: '¿Ya tienes una cuenta? Inicia sesión',
     dontAccount: 'No tienes una cuenta? Registrate',
+    adopt: '¡Adopta un nuevo',
+    friend: 'Amig',
+    exclamation: '!',
+    welcome:'Bienvenido de',
+    new: 'nuev',
+    
   },
 };
 

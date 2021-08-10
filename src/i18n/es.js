@@ -4,6 +4,8 @@ import I18n from 'react-native-i18n';
 I18n.fallbacks = true;
 I18n.translations = {
   en: {
+    nameLow: 'name',
+    emailLow: 'email',
     name: 'Nombre',
     email: 'Correo electrónico',
     password: 'Contraseña',
@@ -12,8 +14,8 @@ I18n.translations = {
     registerGoogle: 'Registrarme con Google',
     login: 'Iniciar sesión',
     loginGoogle: 'Iniciar sesión con Google',
-    alreadyAccount: 'Ya tienes una cuenta? Inicia sesión',
-    dontAccount: 'No tienes una cuenta? Registrate',
+    alreadyAccount: '¿Ya tienes una cuenta? Inicia sesión',
+    dontAccount: 'No tienes una cuenta? Regístrate',
   },
 };
 

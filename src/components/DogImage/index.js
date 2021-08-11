@@ -1,9 +1,5 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, Text} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import {span} from '../../i18n/es';
-
 import {
   ImageContainer,
   StyledImage,
@@ -13,14 +9,22 @@ import {
   StyledChar,
 } from './styledComponent';
 
-const DogImage = () => {
+const DogImage = ({isSignedUp}) => {
+  const vars = {
+    mainTitle: isSignedUp ? 'adopt' : 'welcome',
+    title: isSignedUp ? 'friend' : 'new',
+    img: isSignedUp
+      ? require('../../constants/img/dog.png')
+      : require('../../constants/img/dog2.png'),
+  };
+
   return (
     <ImageContainer>
-      <StyledMainTitle>{span('adopt')}</StyledMainTitle>
-      <StyledTitle>{span('friend')}</StyledTitle>
+      <StyledMainTitle>{span(vars.mainTitle)}</StyledMainTitle>
+      <StyledTitle>{span(vars.title)}</StyledTitle>
       <MainTitleIcon name="pets" />
       <StyledChar>{span('exclamation')}</StyledChar>
-      <StyledImage source={require('../../constants/img/dog1.png')} />
+      <StyledImage source={vars.img} />
     </ImageContainer>
   );
 };

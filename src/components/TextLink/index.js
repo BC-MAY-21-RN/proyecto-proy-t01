@@ -1,9 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
-import {TextLinkCustom} from './styledComponent';
+import {View, Text} from 'react-native';
+import {TextLinkCustom, TextLinkTouchableOpacity} from './styledComponent';
 
-const TextLink = ({text}) => {
-  return <TextLinkCustom>{text}</TextLinkCustom>;
+const TextLink = ({onPress, text}) => {
+  return (
+    <TextLinkTouchableOpacity onPress={onPress}>
+      <TextLinkCustom>{text}</TextLinkCustom>
+    </TextLinkTouchableOpacity>
+  );
 };
 
 export default TextLink;

@@ -13,6 +13,10 @@ export const TopContainer = styled.View`
   height: 34%;
 `;
 
+export const InputTextContainer = styled.View`
+  margin-top: 16px;
+`;
+
 export const InputContainer = styled.View`
   height: 66%;
   border-radius: 20px;
@@ -20,5 +24,5 @@ export const InputContainer = styled.View`
 `;
 
 export const ButtonContainer = styled.View`
-  margin-top: 60px;
+  margin-top: 30px;
 `;

@@ -1,5 +1,4 @@
 import React from 'react';
-import {View, SafeAreaView} from 'react-native';
 import {Formik} from 'formik';
 import {logInValidationSchema} from './../../constants/schemas/loginSchema';
 import {span} from '../../i18n/es';
@@ -14,6 +13,7 @@ import {
   TopContainerLog,
   InputContainerLog,
   ButtonContainerLog,
+  InputTextContainerLog,
 } from './styledComponents';
 
 const LogIn = ({navigation}) => {
@@ -34,22 +34,27 @@ const LogIn = ({navigation}) => {
         onSubmit={values => values}>
         {formProps => (
           <InputContainerLog>
-            <TextInputField
-              {...formProps}
-              formControlName={span('emailLow')}
-              label={span('email')}
-            />
-            <TextInputField
-              {...formProps}
-              formControlName={'password'}
-              label={span('password')}
-            />
+            <InputTextContainerLog>
+              <TextInputField
+                {...formProps}
+                formControlName={span('emailLow')}
+                label={span('email')}
+                icon="email"
+              />
+              <TextInputField
+                {...formProps}
+                formControlName={'password'}
+                label={span('password')}
+                icon="visibility"
+              />
+            </InputTextContainerLog>
             <ButtonContainerLog>
               <CustomButton text={span('login')} />
               <CustomButton text={span('loginGoogle')} />
               <TextLink
-                navigation={navigation}
-                screen="SignUp"
+                onPress={() => {
+                  navigation.navigate('SignUp');
+                }}
                 text={span('dontAccount')}
               />
             </ButtonContainerLog>

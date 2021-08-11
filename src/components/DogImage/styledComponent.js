@@ -6,32 +6,34 @@ export const ImageContainer = styled.View`
   position: relative;
 `;
 export const StyledImage = styled.Image`
-  margin-top: 20px;
-  width: 100%;
-  height: 100%;
+  width: 55%;
+  height: 110%;
 `;
 
 export const StyledMainTitle = styled.Text`
   position: absolute;
-  margin: 10px 10px;
-  font-size: 22px;
+  margin-top: 30px;
+  margin-left: 170px;
+  font-size: 28px;
   color: ${colors.white};
   font-weight: 700;
 `;
 
 export const StyledTitle = styled(StyledMainTitle)`
-  margin: 35px 50px;
-  font-size: 40px;
+  margin-top: 70px;
+  margin-left: 242px;
+  font-size: 44px;
   color: ${colors.blue_m};
 `;
 
 export const StyledChar = styled(StyledTitle)`
-  margin: 35px 174px;
+  margin-left: 380px;
 `;
 
 export const MainTitleIcon = styled(Icon)`
   position: absolute;
-  margin: 46px 144px;
-  font-size: 33px;
+  margin-top: 80px;
+  margin-left: 342px;
+  font-size: 40px;
   color: ${colors.blue_m};
 `;

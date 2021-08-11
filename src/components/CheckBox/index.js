@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import CheckBox from '@react-native-community/checkbox';
 import {CheckBoxContainer, TextCustom} from './styledComponent';

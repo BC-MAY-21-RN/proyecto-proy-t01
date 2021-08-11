@@ -19,8 +19,8 @@ I18n.translations = {
     adopt: '¡Adopta un nuevo',
     friend: 'Amig',
     exclamation: '!',
-    welcome: 'Bienvenido de',
-    new: 'nuev',
+    welcome: '¡Bienvenido de',
+    new: 'Nuev',
   },
 };
 

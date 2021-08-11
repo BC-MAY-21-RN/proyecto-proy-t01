@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, SafeAreaView, TextInput, Text} from 'react-native';
+import {SafeAreaView, Button} from 'react-native';
 import {Formik} from 'formik';
 import Span, {span} from '../../i18n/es';
 import {
@@ -9,6 +9,7 @@ import {
   TextLink,
 } from '../../components';
 import {signUpValidationSchema} from '../../constants/schemas/signupSchema';
+import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
 
 const SignUp = ({navigation}) => {
   return (

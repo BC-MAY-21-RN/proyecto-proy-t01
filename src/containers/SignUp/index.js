@@ -20,6 +20,7 @@ import {
 
 const SignUp = ({navigation}) => {
   const [emailInUseError, setEmailInUseError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const handleSignIn = values => {
     const {name, email, password} = values;
     signInWithNameEmailAndPassword(name, email, password)
@@ -66,12 +67,14 @@ const SignUp = ({navigation}) => {
                 {...formProps}
                 formControlName={span('passwordLow')}
                 label={span('password')}
-                icon="visibility"
+                icon={showPassword ? 'visibility' : 'visibility-off'}
+                onPress={() => setShowPassword(!showPassword)}
+                secureTextEntry={!showPassword}
               />
             </InputTextContainer>
             <CheckBoxField
               {...formProps}
-              label={<Span text="terms" />}
+              label={span('terms')}
               formControlName={span('agreeTermsLow')}
             />
             <ButtonContainer>

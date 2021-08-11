@@ -18,7 +18,7 @@ I18n.translations = {
     passwordCharacter: ' *La contraseña debe tener minímo 8 cáracteres',
     passwordInvalid: ' *Contraseña inválida',
     terms: 'Acepto los Terminos y Condiciones.',
-    termsError: ' *Aceptar los Terminos y Condiciones es requerido',
+    termsError: ' *Aceptar terminos',
     register: 'Registrarme',
     registerGoogle: 'Registrarme con Google',
     login: 'Iniciar sesión',

@@ -1,9 +1,20 @@
 import React from 'react';
 import CheckBox from '@react-native-community/checkbox';
-import {CheckBoxContainer, TextCustom} from './styledComponent';
 import colors from '../../constants/colors';
+import {
+  CheckBoxContainer,
+  TextCustom,
+  AlertTextCheckBox,
+} from './styledComponent';
 
-const CheckBoxField = ({setFieldValue, values, label, name}) => {
+const CheckBoxField = ({
+  setFieldValue,
+  values,
+  label,
+  formControlName,
+  errors,
+  touched,
+}) => {
   return (
     <CheckBoxContainer>
       <CheckBox
@@ -14,7 +25,7 @@ const CheckBoxField = ({setFieldValue, values, label, name}) => {
       />
       <TextCustom>{label}</TextCustom>
       {errors[formControlName] && touched[formControlName] && (
-        <Text>{errors[formControlName]}</Text>
+        <AlertTextCheckBox>{errors[formControlName]}</AlertTextCheckBox>
       )}
     </CheckBoxContainer>
   );

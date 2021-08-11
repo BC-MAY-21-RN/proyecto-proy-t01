@@ -1,17 +1,11 @@
 import React from 'react';
-import {View} from 'react-native';
-import {TextLinkCustom} from './styledComponent';
+import {TextLinkCustom, TextLinkTouchableOpacity} from './styledComponent';
 
-const TextLink = ({text, navigation, screen}) => {
+const TextLink = ({onPress, text}) => {
   return (
-    <View>
-      <TextLinkCustom
-        onPress={() => {
-          navigation.navigate(screen);
-        }}>
-        {text}
-      </TextLinkCustom>
-    </View>
+    <TextLinkTouchableOpacity onPress={onPress}>
+      <TextLinkCustom>{text}</TextLinkCustom>
+    </TextLinkTouchableOpacity>
   );
 };
 

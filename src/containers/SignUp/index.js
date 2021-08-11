@@ -1,63 +1,104 @@
-import React from 'react';
-import {SafeAreaView, Button} from 'react-native';
+import React, {useState} from 'react';
 import {Formik} from 'formik';
-import Span, {span} from '../../i18n/es';
+import {span} from '../../i18n/es';
+import {validationSchema} from '../../constants/schemas/validationSchema';
+import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
+import {
+  MainContainer,
+  InputContainer,
+  TopContainer,
+  ButtonContainer,
+  InputTextContainer,
+} from './styledComponent';
 import {
   CheckBoxField,
   TextInputField,
   CustomButton,
   TextLink,
+  DogImage,
 } from '../../components';
 import {signUpValidationSchema} from '../../constants/schemas/signupSchema';
 import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
 
 const SignUp = ({navigation}) => {
+  const [emailInUseError, setEmailInUseError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const handleSignIn = values => {
+    const {name, email, password} = values;
+    signInWithNameEmailAndPassword(name, email, password)
+      .then(() => {
+        setEmailInUseError(false);
+      })
+      .catch(() => {
+        setEmailInUseError(true);
+      });
+  };
+
   return (
-    <SafeAreaView>
+    <MainContainer>
+      <TopContainer>
+        <DogImage isSignedUp />
+      </TopContainer>
       <Formik
-        validationSchema={signUpValidationSchema}
+        validationSchema={validationSchema}
         initialValues={{
           name: '',
           email: '',
           password: '',
-          agreeTerms: false,
+          agreeTerms: true,
         }}
-        validateOnMount={true}>
+        validateOnMount={true}
+        onSubmit={values => handleSignIn(values)}>
         {formProps => (
-          <>
-            <TextInputField
+          <InputContainer>
+            <InputTextContainer>
+              <TextInputField
+                {...formProps}
+                formControlName={span('nameLow')}
+                label={span('name')}
+                icon="person"
+              />
+              <TextInputField
+                {...formProps}
+                formControlName={span('emailLow')}
+                label={span('email')}
+                authError={emailInUseError && span('emailUsed')}
+                icon="email"
+              />
+              <TextInputField
+                {...formProps}
+                formControlName={span('passwordLow')}
+                label={span('password')}
+                icon={showPassword ? 'visibility' : 'visibility-off'}
+                onPress={() => setShowPassword(!showPassword)}
+                secureTextEntry={!showPassword}
+              />
+            </InputTextContainer>
+            <CheckBoxField
               {...formProps}
-              formControlName={span('nameLow')}
-              label={span('name')}
+              label={span('terms')}
+              formControlName={span('agreeTermsLow')}
             />
-
-            <TextInputField
-              {...formProps}
-              formControlName={span('emailLow')}
-              label={span('email')}
-            />
-
-            <TextInputField
-              {...formProps}
-              formControlName={'password'}
-              label={span('password')}
-            />
-
-            <CheckBoxField label={<Span text="terms" />} />
-            <CustomButton text={<Span text="register" />} />
-            <CustomButton
-              onPress={() => onGoogleButtonPress()}
-              text={<Span text="registerGoogle" />}
-            />
-            <TextLink
-              navigation={navigation}
-              screen="LogIn"
-              text={<Span text="alreadyAccount" />}
-            />
-          </>
+            <ButtonContainer>
+              <CustomButton
+                text={span('register')}
+                onPress={formProps.handleSubmit}
+              />
+              <CustomButton
+                text={span('registerGoogle')}
+                onPress={() => onGoogleButtonPress()}
+              />
+              <TextLink
+                onPress={() => {
+                  navigation.navigate('LogIn');
+                }}
+                text={span('alreadyAccount')}
+              />
+            </ButtonContainer>
+          </InputContainer>
         )}
       </Formik>
-    </SafeAreaView>
+    </MainContainer>
   );
 };
 

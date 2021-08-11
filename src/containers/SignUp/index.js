@@ -1,18 +1,26 @@
 import React, {useState} from 'react';
-import {SafeAreaView} from 'react-native';
 import {Formik} from 'formik';
-import Span, {span} from '../../i18n/es';
+import {span} from '../../i18n/es';
+import {validationSchema} from '../../constants/schemas/validationSchema';
+import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
+import {
+  MainContainer,
+  InputContainer,
+  TopContainer,
+  ButtonContainer,
+  InputTextContainer,
+} from './styledComponent';
 import {
   CheckBoxField,
   TextInputField,
   CustomButton,
   TextLink,
+  DogImage,
 } from '../../components';
-import {validationSchema} from '../../constants/schemas/validationSchema';
-import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
 
 const SignUp = ({navigation}) => {
   const [emailInUseError, setEmailInUseError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const handleSignIn = values => {
     const {name, email, password} = values;
     signInWithNameEmailAndPassword(name, email, password)
@@ -25,7 +33,10 @@ const SignUp = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView>
+    <MainContainer>
+      <TopContainer>
+        <DogImage isSignedUp />
+      </TopContainer>
       <Formik
         validationSchema={validationSchema}
         initialValues={{
@@ -37,44 +48,52 @@ const SignUp = ({navigation}) => {
         validateOnMount={true}
         onSubmit={values => handleSignIn(values)}>
         {formProps => (
-          <>
-            <TextInputField
-              {...formProps}
-              formControlName={span('nameLow')}
-              label={span('name')}
-            />
-
-            <TextInputField
-              {...formProps}
-              formControlName={span('emailLow')}
-              label={span('email')}
-              authError={emailInUseError && span('emailUsed')}
-            />
-            <TextInputField
-              {...formProps}
-              formControlName={span('passwordLow')}
-              label={span('password')}
-            />
+          <InputContainer>
+            <InputTextContainer>
+              <TextInputField
+                {...formProps}
+                formControlName={span('nameLow')}
+                label={span('name')}
+                icon="person"
+              />
+              <TextInputField
+                {...formProps}
+                formControlName={span('emailLow')}
+                label={span('email')}
+                authError={emailInUseError && span('emailUsed')}
+                icon="email"
+              />
+              <TextInputField
+                {...formProps}
+                formControlName={span('passwordLow')}
+                label={span('password')}
+                icon={showPassword ? 'visibility' : 'visibility-off'}
+                onPress={() => setShowPassword(!showPassword)}
+                secureTextEntry={!showPassword}
+              />
+            </InputTextContainer>
             <CheckBoxField
               {...formProps}
-              label={<Span text="terms" />}
+              label={span('terms')}
               formControlName={span('agreeTermsLow')}
             />
-
-            <CustomButton
-              text={<Span text="register" />}
-              onPress={formProps.handleSubmit}
-            />
-            <CustomButton text={<Span text="registerGoogle" />} />
-            <TextLink
-              navigation={navigation}
-              screen="LogIn"
-              text={<Span text="alreadyAccount" />}
-            />
-          </>
+            <ButtonContainer>
+              <CustomButton
+                text={span('register')}
+                onPress={formProps.handleSubmit}
+              />
+              <CustomButton text={span('registerGoogle')} />
+              <TextLink
+                onPress={() => {
+                  navigation.navigate('LogIn');
+                }}
+                text={span('alreadyAccount')}
+              />
+            </ButtonContainer>
+          </InputContainer>
         )}
       </Formik>
-    </SafeAreaView>
+    </MainContainer>
   );
 };
 

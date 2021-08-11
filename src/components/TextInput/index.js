@@ -1,14 +1,17 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
-import {Text, TextInput, View} from 'react-native';
-import {TextInputCustom} from './styledComponent';
-import {signUpValidationSchema} from './../../constants/schemas/signupSchema';
-import {Formik} from 'formik';
-import Span from '../../i18n/es';
+import {
+  TextInputCustom,
+  InputContainer,
+  InputIcon,
+  AlertText,
+} from './styledComponent';
+import color from '../../constants/colors';
+import {Text} from 'react-native';
 
 const TextInputField = props => {
   const {
     label,
+    icon,
     handleChange,
     handleBlur,
     values,
@@ -19,22 +22,26 @@ const TextInputField = props => {
   } = props;
 
   return (
-    <View>
-      <View>
-        <Text>{label}</Text>
+    <>
+      <InputContainer>
         <TextInputCustom
+          placeholder={label}
+          placeholderTextColor={color.ligh_grey}
           name={formControlName}
           onChangeText={handleChange(formControlName)}
           onBlur={handleBlur(formControlName)}
           value={values[formControlName]}
-          />
-          {errors[formControlName] && touched[formControlName] ? (
-            <Text>{errors[formControlName]}</Text>
-          ) : (
-            authError && <Text>{authError}</Text>
-          )}
-      </View>
-    </View>
+        />
+        <InputIcon name={icon} />
+      </InputContainer>
+      <AlertText>
+        {errors[formControlName] && touched[formControlName] ? (
+          <Text>{errors[formControlName]}</Text>
+        ) : (
+          authError && <Text>{authError}</Text>
+        )}
+      </AlertText>
+    </>
   );
 };
 

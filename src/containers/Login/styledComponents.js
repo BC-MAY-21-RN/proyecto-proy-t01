@@ -1,9 +1,16 @@
-import styled from 'styled-components';
-import {MainContainerHome, TextCustom} from '../Home/styledComponents';
+import styled from 'styled-components/native';
+import {
+  MainContainer,
+  TopContainer,
+  InputContainer,
+  ButtonContainer,
+  InputTextContainer,
+} from '../SignUp/styledComponent';
 
-export const BackGorundForLogin = styled(MainContainerHome)`
-  background-color: turquoise;
-`;
-export const TextForLogin = styled(TextCustom)`
-  color: red;
+export const MainContainerLog = styled(MainContainer)``;
+export const TopContainerLog = styled(TopContainer)``;
+export const InputContainerLog = styled(InputContainer)``;
+export const InputTextContainerLog = styled(InputTextContainer)``;
+export const ButtonContainerLog = styled(ButtonContainer)`
+  margin-top: 160px;
 `;

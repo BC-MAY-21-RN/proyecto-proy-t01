@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, Text, Pressable} from 'react-native';
+import {View, Text} from 'react-native';
 import { StyledButton } from './styledComponent';
-const CustomButton = ({text}) => {
+const CustomButton = ({text, onPress}) => {
     return (
-    <StyledButton>
+    <StyledButton
+    onPress = {onPress}>
         <View>
             <Text>{text}</Text>
         </View>

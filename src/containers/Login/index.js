@@ -3,18 +3,16 @@ import {View, SafeAreaView} from 'react-native';
 import {Formik} from 'formik';
 import Span, {span} from '../../i18n/es';
 import {TextInputField, CustomButton, TextLink} from '../../components';
-import {logInValidationSchema} from './../../constants/schemas/loginSchema';
+import {validationSchema} from '../../constants/schemas/validationSchema';
 
 const LogIn = ({navigation}) => {
   return (
     <SafeAreaView>
       <Formik
-        validationSchema={logInValidationSchema}
+        validationSchema={validationSchema}
         initialValues={{
-          name: '',
           email: '',
           password: '',
-          agreeTerms: false,
         }}
         validateOnMount={true}
         onSubmit={values => console.log(values)}>

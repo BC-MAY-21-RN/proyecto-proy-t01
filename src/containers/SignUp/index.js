@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, SafeAreaView, TextInput, Text} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView} from 'react-native';
 import {Formik} from 'formik';
 import Span, {span} from '../../i18n/es';
 import {
@@ -8,20 +8,34 @@ import {
   CustomButton,
   TextLink,
 } from '../../components';
-import {signUpValidationSchema} from '../../constants/schemas/signupSchema';
+import {validationSchema} from '../../constants/schemas/validationSchema';
+import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
 
 const SignUp = ({navigation}) => {
+  const [emailInUseError, setEmailInUseError] = useState(false);
+  const handleSignIn = values => {
+    const {name, email, password} = values;
+    signInWithNameEmailAndPassword(name, email, password)
+      .then(() => {
+        setEmailInUseError(false);
+      })
+      .catch(() => {
+        setEmailInUseError(true);
+      });
+  };
+
   return (
     <SafeAreaView>
       <Formik
-        validationSchema={signUpValidationSchema}
+        validationSchema={validationSchema}
         initialValues={{
           name: '',
           email: '',
           password: '',
-          agreeTerms: false,
+          agreeTerms: true,
         }}
-        validateOnMount={true}>
+        validateOnMount={true}
+        onSubmit={values => handleSignIn(values)}>
         {formProps => (
           <>
             <TextInputField
@@ -34,16 +48,23 @@ const SignUp = ({navigation}) => {
               {...formProps}
               formControlName={span('emailLow')}
               label={span('email')}
+              authError={emailInUseError && span('emailUsed')}
             />
-
             <TextInputField
               {...formProps}
-              formControlName={'password'}
+              formControlName={span('passwordLow')}
               label={span('password')}
             />
+            <CheckBoxField
+              {...formProps}
+              label={<Span text="terms" />}
+              formControlName={span('agreeTermsLow')}
+            />
 
-            <CheckBoxField label={<Span text="terms" />} />
-            <CustomButton text={<Span text="register" />} />
+            <CustomButton
+              text={<Span text="register" />}
+              onPress={formProps.handleSubmit}
+            />
             <CustomButton text={<Span text="registerGoogle" />} />
             <TextLink
               navigation={navigation}

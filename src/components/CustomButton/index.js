@@ -1,9 +1,10 @@
 import React from 'react';
+import {StyledButton} from './styledComponent';
 import {StyledButton, TextCustom} from './styledComponent';
 
-const CustomButton = ({text}) => {
+const CustomButton = ({text, onPress}) => {
   return (
-    <StyledButton>
+    <StyledButton onPress={onPress}>
       <TextCustom>{text}</TextCustom>
     </StyledButton>
   );

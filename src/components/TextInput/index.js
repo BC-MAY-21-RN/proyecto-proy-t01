@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
   TextInputCustom,
@@ -19,6 +18,7 @@ const TextInputField = props => {
     formControlName,
     errors,
     touched,
+    authError,
   } = props;
 
   return (
@@ -35,8 +35,10 @@ const TextInputField = props => {
         <InputIcon name={icon} />
       </InputContainer>
       <AlertText>
-        {errors[formControlName] && touched[formControlName] && (
+        {errors[formControlName] && touched[formControlName] ? (
           <Text>{errors[formControlName]}</Text>
+        ) : (
+          authError && <Text>{authError}</Text>
         )}
       </AlertText>
     </>

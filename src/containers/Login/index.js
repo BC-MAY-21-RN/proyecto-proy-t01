@@ -1,6 +1,6 @@
 import React from 'react';
 import {Formik} from 'formik';
-import {logInValidationSchema} from './../../constants/schemas/loginSchema';
+import {validationSchema} from '../../constants/schemas/validationSchema';
 import {span} from '../../i18n/es';
 import {
   TextInputField,
@@ -16,6 +16,7 @@ import {
   InputTextContainerLog,
 } from './styledComponents';
 
+
 const LogIn = ({navigation}) => {
   return (
     <MainContainerLog>
@@ -23,12 +24,10 @@ const LogIn = ({navigation}) => {
         <DogImage />
       </TopContainerLog>
       <Formik
-        validationSchema={logInValidationSchema}
+        validationSchema={validationSchema}
         initialValues={{
-          name: '',
           email: '',
           password: '',
-          agreeTerms: false,
         }}
         validateOnMount={true}
         onSubmit={values => values}>

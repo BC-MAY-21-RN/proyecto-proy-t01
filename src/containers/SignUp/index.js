@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Formik} from 'formik';
 import {span} from '../../i18n/es';
-import {signUpValidationSchema} from '../../constants/schemas/signupSchema';
+import {validationSchema} from '../../constants/schemas/validationSchema';
+import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
 import {
   MainContainer,
   InputContainer,
@@ -18,20 +19,33 @@ import {
 } from '../../components';
 
 const SignUp = ({navigation}) => {
+  const [emailInUseError, setEmailInUseError] = useState(false);
+  const handleSignIn = values => {
+    const {name, email, password} = values;
+    signInWithNameEmailAndPassword(name, email, password)
+      .then(() => {
+        setEmailInUseError(false);
+      })
+      .catch(() => {
+        setEmailInUseError(true);
+      });
+  };
+
   return (
     <MainContainer>
       <TopContainer>
         <DogImage isSignedUp />
       </TopContainer>
       <Formik
-        validationSchema={signUpValidationSchema}
+        validationSchema={validationSchema}
         initialValues={{
           name: '',
           email: '',
           password: '',
-          agreeTerms: false,
+          agreeTerms: true,
         }}
-        validateOnMount={true}>
+        validateOnMount={true}
+        onSubmit={values => handleSignIn(values)}>
         {formProps => (
           <InputContainer>
             <InputTextContainer>
@@ -45,18 +59,26 @@ const SignUp = ({navigation}) => {
                 {...formProps}
                 formControlName={span('emailLow')}
                 label={span('email')}
+                authError={emailInUseError && span('emailUsed')}
                 icon="email"
               />
               <TextInputField
                 {...formProps}
-                formControlName={'password'}
+                formControlName={span('passwordLow')}
                 label={span('password')}
                 icon="visibility"
               />
             </InputTextContainer>
-            <CheckBoxField label={span('terms')} />
+            <CheckBoxField
+              {...formProps}
+              label={<Span text="terms" />}
+              formControlName={span('agreeTermsLow')}
+            />
             <ButtonContainer>
-              <CustomButton text={span('register')} />
+              <CustomButton
+                text={span('register')}
+                onPress={formProps.handleSubmit}
+              />
               <CustomButton text={span('registerGoogle')} />
               <TextLink
                 onPress={() => {

@@ -9,7 +9,7 @@ export const InputContainer = styled.View`
   border-bottom-width: 1px;
   margin: 10px 20px;
   border-bottom-color: ${colors.ligh_grey};
-  `;
+`;
 
 export const TextInputCustom = styled.TextInput`
   height: 40px;

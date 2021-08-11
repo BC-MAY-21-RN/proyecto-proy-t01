@@ -16,7 +16,6 @@ import {
   InputTextContainerLog,
 } from './styledComponents';
 
-
 const LogIn = ({navigation}) => {
   return (
     <MainContainerLog>

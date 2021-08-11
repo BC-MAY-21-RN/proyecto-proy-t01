@@ -4,11 +4,13 @@ import {
   TopContainer,
   InputContainer,
   ButtonContainer,
-  InputTextContainer
+  InputTextContainer,
 } from '../SignUp/styledComponent';
 
 export const MainContainerLog = styled(MainContainer)``;
 export const TopContainerLog = styled(TopContainer)``;
 export const InputContainerLog = styled(InputContainer)``;
 export const InputTextContainerLog = styled(InputTextContainer)``;
-export const ButtonContainerLog = styled(ButtonContainer)`  margin-top: 160px;`;
+export const ButtonContainerLog = styled(ButtonContainer)`
+  margin-top: 160px;
+`;

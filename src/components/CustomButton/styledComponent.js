@@ -14,4 +14,3 @@ export const TextCustom = styled.Text`
   align-self: center;
   color: ${colors.white};
 `;
-

@@ -19,8 +19,6 @@ const TextInputField = props => {
     errors,
     touched,
     authError,
-    onPress,
-    secureTextEntry,
   } = props;
 
   return (

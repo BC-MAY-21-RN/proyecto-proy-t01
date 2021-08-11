@@ -24,7 +24,7 @@ I18n.translations = {
     login: 'Iniciar sesión',
     loginGoogle: 'Iniciar sesión con Google',
     alreadyAccount: '¿Ya tienes una cuenta? Inicia sesión',
-    dontAccount: 'No tienes una cuenta? Registrate',
+    dontAccount: '¿No tienes una cuenta? Registrate',
     adopt: '¡Adopta un nuevo',
     friend: 'Amig',
     exclamation: '!',

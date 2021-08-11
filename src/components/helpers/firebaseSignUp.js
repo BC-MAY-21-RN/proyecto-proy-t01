@@ -14,11 +14,11 @@ export const useGoogleConfiguration = () => {
 export const onGoogleButtonPress = async navigation => {
   const {idToken} = await GoogleSignin.signIn();
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-  await auth().signInWithCredential(googleCredential);
-  // .then(response => {
-  //   if (response) {
-  //     createAditionalData();
-  //     //   navigation.navigate('');
-  //   }
-  // });
+  await auth()
+    .signInWithCredential(googleCredential)
+    .then(response => {
+      if (response) {
+        //   navigation.navigate('');
+      }
+    });
 };

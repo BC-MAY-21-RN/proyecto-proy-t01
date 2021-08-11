@@ -45,7 +45,10 @@ const SignUp = ({navigation}) => {
 
             <CheckBoxField label={<Span text="terms" />} />
             <CustomButton text={<Span text="register" />} />
-            <CustomButton text={<Span text="registerGoogle" />} />
+            <CustomButton
+              onPress={() => onGoogleButtonPress()}
+              text={<Span text="registerGoogle" />}
+            />
             <TextLink
               navigation={navigation}
               screen="LogIn"

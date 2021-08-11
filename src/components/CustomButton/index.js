@@ -4,9 +4,9 @@ import {View, Text, Pressable} from 'react-native';
 import {onGoogleButtonPress} from '../helpers/firebaseSignUp';
 import {StyledButton} from './styledComponent';
 
-const CustomButton = ({text}) => {
+const CustomButton = ({text, onPress}) => {
   return (
-    <StyledButton onPress={() => onGoogleButtonPress()}>
+    <StyledButton onPress={onPress}>
       <View>
         <Text>{text}</Text>
       </View>

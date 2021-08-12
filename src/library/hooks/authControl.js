@@ -16,3 +16,21 @@ export const signInWithNameEmailAndPassword = (name, email, password) => {
       });
   });
 };
+
+export const logInWithEmailAndPassword = (email, password) => {
+  return new Promise((resolve, reject) => {
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        resolve('User signed in!');
+      })
+      .catch(error => {
+        if (error.code === 'auth/wrong-password') {
+          reject('Wrong email/password');
+        }
+        if (error.code === 'auth/invalid-email') {
+          reject('That email address is invalid!');
+        }
+      });
+  });
+};

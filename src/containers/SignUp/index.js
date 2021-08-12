@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Formik} from 'formik';
 import {span} from '../../i18n/es';
-import {validationSchema} from '../../constants/schemas/validationSchema';
+import {signUpValidationSchema} from '../../constants/schemas/signUpValidationSchema';
 import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
 import {
   MainContainer,
@@ -17,7 +17,6 @@ import {
   TextLink,
   DogImage,
 } from '../../components';
-import {signUpValidationSchema} from '../../constants/schemas/signupSchema';
 import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
 
 const SignUp = ({navigation}) => {
@@ -40,7 +39,7 @@ const SignUp = ({navigation}) => {
         <DogImage isSignedUp />
       </TopContainer>
       <Formik
-        validationSchema={validationSchema}
+        validationSchema={signUpValidationSchema}
         initialValues={{
           name: '',
           email: '',

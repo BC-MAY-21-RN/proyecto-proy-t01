@@ -17,6 +17,8 @@ import {
   TextLink,
   DogImage,
 } from '../../components';
+import {signUpValidationSchema} from '../../constants/schemas/signupSchema';
+import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
 
 const SignUp = ({navigation}) => {
   const [emailInUseError, setEmailInUseError] = useState(false);
@@ -82,7 +84,10 @@ const SignUp = ({navigation}) => {
                 text={span('register')}
                 onPress={formProps.handleSubmit}
               />
-              <CustomButton text={span('registerGoogle')} />
+              <CustomButton
+                text={span('registerGoogle')}
+                onPress={() => onGoogleButtonPress()}
+              />
               <TextLink
                 onPress={() => {
                   navigation.navigate('LogIn');

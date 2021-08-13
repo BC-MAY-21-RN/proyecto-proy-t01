@@ -30,6 +30,7 @@ I18n.translations = {
     exclamation: '!',
     welcome: '¡Bienvenido de',
     new: 'Nuev',
+    wrongAuth: '*Correo y contraseña no coinciden',
   },
 };
 

@@ -1,12 +1,12 @@
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {useEffect} from 'react';
+import {WEB_CLIENT_ID} from '@env';
 
 export const useGoogleConfiguration = () => {
   useEffect(() => {
     GoogleSignin.configure({
-      webClientId:
-        '762122167762-rbe58eldje888bfbrsguhsuo2k1h81fm.apps.googleusercontent.com',
+      webClientId: WEB_CLIENT_ID,
     });
   }, []);
 };

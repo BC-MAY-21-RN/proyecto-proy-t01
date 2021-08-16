@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Formik} from 'formik';
-import {validationSchema} from '../../constants/schemas/validationSchema';
+import {logInWithEmailAndPassword} from '../../library/hooks/authControl';
+import {logInValidationSchema} from '../../constants/schemas/logInValidationSchema';
 import {span} from '../../i18n/es';
+import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
 import {
   TextInputField,
   CustomButton,
@@ -17,19 +19,27 @@ import {
 } from './styledComponents';
 
 const LogIn = ({navigation}) => {
+  const [authError, setAuthError] = useState(false);
+
+  const handleLogIn = values => {
+    const {email, password} = values;
+    logInWithEmailAndPassword(email, password)
+      .then(() => setAuthError(false))
+      .catch(() => setAuthError(true));
+  };
   return (
     <MainContainerLog>
       <TopContainerLog>
         <DogImage />
       </TopContainerLog>
       <Formik
-        validationSchema={validationSchema}
+        validationSchema={logInValidationSchema}
         initialValues={{
           email: '',
           password: '',
         }}
         validateOnMount={true}
-        onSubmit={values => values}>
+        onSubmit={values => handleLogIn(values)}>
         {formProps => (
           <InputContainerLog>
             <InputTextContainerLog>
@@ -41,14 +51,21 @@ const LogIn = ({navigation}) => {
               />
               <TextInputField
                 {...formProps}
-                formControlName={'password'}
+                formControlName={span('passwordLow')}
                 label={span('password')}
                 icon="visibility"
+                authError={authError && span('wrongAuth')}
               />
             </InputTextContainerLog>
             <ButtonContainerLog>
-              <CustomButton text={span('login')} />
-              <CustomButton text={span('loginGoogle')} />
+              <CustomButton
+                text={span('login')}
+                onPress={formProps.handleSubmit}
+              />
+              <CustomButton
+                text={span('loginGoogle')}
+                onPress={() => onGoogleButtonPress()}
+              />
               <TextLink
                 onPress={() => {
                   navigation.navigate('SignUp');

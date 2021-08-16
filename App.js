@@ -3,6 +3,7 @@ import React from 'react';
 import {Screens, MyTabs} from './src/navigators';
 
 const App = () => {
+  useGoogleConfiguration();
   return (
     <>
       <Screens />

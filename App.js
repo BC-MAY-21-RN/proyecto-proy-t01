@@ -5,8 +5,8 @@ import {Screens, MyTabs} from './src/navigators';
 const App = () => {
   return (
     <>
-      {/* <Screens /> */}
-      <MyTabs />
+      <Screens />
+      {/* <MyTabs /> */}
     </>
   );
   // (

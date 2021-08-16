@@ -3,13 +3,14 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Home, LogIn, SignUp} from '../../containers';
+import {MyTab} from '../Tab';
 
 const Stack = createStackNavigator();
 
 const listScreens = [
   {name: 'SignUp', component: SignUp},
   {name: 'LogIn', component: LogIn},
-  {name: 'Home', component: Home},
+  {name: 'Home', component: MyTab},
 ];
 
 const screens = listScreens.map(({name, component}) => (

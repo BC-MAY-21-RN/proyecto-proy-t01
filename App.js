@@ -1,14 +1,14 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {Screens, MyTab} from './src/navigators';
+
 import {useGoogleConfiguration} from './src/components/helpers/firebaseSignUp';
+import { ScreenNavigator,TabNavigator } from './src/navigators';
 
 const App = () => {
   useGoogleConfiguration();
   return (
     <>
-      <Screens />
-      {/* {<MyTabs />} */}
+      <ScreenNavigator />
     </>
   );
   // (

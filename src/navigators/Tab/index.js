@@ -5,10 +5,10 @@ import Home from '../../containers/Home';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../constants/colors';
-
+import {NavigationContainer} from '@react-navigation/native';
 const Tab = createBottomTabNavigator();
 
-const TabListItems = [
+const listItems = [
   {
     key: 1,
     name: 'Home',
@@ -18,7 +18,7 @@ const TabListItems = [
   },
 ];
 
-const TabList = TabListItems.map(item => (
+const tabList = listItems.map(item => 
   <Tab.Screen
     key={item.key}
     name={item.name}
@@ -34,10 +34,9 @@ const TabList = TabListItems.map(item => (
       ),
     }}
   />
-));
+);
 
-const MyTab = () => {
-  return <Tab.Navigator>{TabList}</Tab.Navigator>;
-};
+const TabNavigator = () => <Tab.Navigator>{tabList}</Tab.Navigator>;
 
-export default MyTab;
+
+export default TabNavigator;

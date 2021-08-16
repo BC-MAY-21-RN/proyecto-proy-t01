@@ -1,4 +1,7 @@
-import Screens from './Screens';
-import MyTabs from './Tab';
+import ScreenNavigator from "./Screens";
+import TabNavigator from "./Tab";
 
-export {Screens, MyTabs};
+export{
+    ScreenNavigator,
+    TabNavigator
+}

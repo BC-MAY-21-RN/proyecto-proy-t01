@@ -24,5 +24,5 @@ export const InputContainer = styled.View`
 `;
 
 export const ButtonContainer = styled.View`
-  margin-top: 30px;
+  margin-top: 0px;
 `;

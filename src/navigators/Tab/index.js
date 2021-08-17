@@ -1,42 +1,62 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {LogIn, SignUp} from '../../containers';
-import Home from '../../containers/Home';
+import {Home} from '../../containers/';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../constants/colors';
-import {NavigationContainer} from '@react-navigation/native';
+
 const Tab = createBottomTabNavigator();
 
 const listItems = [
   {
     key: 1,
-    name: 'Home',
+    name: 'Inicio',
     component: Home,
     icon: 'home',
-    title: 'Home',
+  },
+  {
+    key: 2,
+    name: 'Favoritos',
+    component: Home,
+    icon: 'favorite',
+  },
+  {
+    key: 3,
+    name: 'Perfil',
+    component: Home,
+    icon: 'account-circle',
+  },
+  {
+    key: 4,
+    name: 'Salir',
+    component: Home,
+    icon: 'logout',
   },
 ];
 
-const tabList = listItems.map(item => 
+const tabList = listItems.map(item => (
   <Tab.Screen
     key={item.key}
     name={item.name}
     component={item.component}
     options={{
       tabBarLabel: item.tabBarLabel,
+      tabBarActiveTintColor: colors.red,
+      tabBarInactiveTintColor: colors.ligh_grey,
+
       tabBarIcon: ({focused}) => (
         <Icon
+          color={focused ? colors.red : colors.ligh_grey}
           name={item.icon}
-          size={30}
-          color={focused ? colors.white : colors.red}
+          size={24}
         />
       ),
     }}
   />
+));
+
+const TabNavigator = () => (
+  <Tab.Navigator screenOptions={{header: () => null}}>{tabList}</Tab.Navigator>
 );
-
-const TabNavigator = () => <Tab.Navigator>{tabList}</Tab.Navigator>;
-
 
 export default TabNavigator;

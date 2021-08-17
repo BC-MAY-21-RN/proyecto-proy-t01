@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   TextInputCustom,
   InputContainer,
@@ -21,6 +21,8 @@ const TextInputField = props => {
     authError,
   } = props;
 
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <>
       <InputContainer>
@@ -31,8 +33,14 @@ const TextInputField = props => {
           onChangeText={handleChange(formControlName)}
           onBlur={handleBlur(formControlName)}
           value={values[formControlName]}
+          secureTextEntry={!showPassword}
+          s
         />
-        <InputIcon name={icon} />
+        <InputIcon
+          name={icon}
+          onPress={() => setShowPassword(!showPassword)}
+          // name={showPassword ? 'visibility' : 'visibility-off'}
+        />
       </InputContainer>
       <AlertText>
         {errors[formControlName] && touched[formControlName] ? (

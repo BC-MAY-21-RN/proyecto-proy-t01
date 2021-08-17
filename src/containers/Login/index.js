@@ -27,6 +27,7 @@ const LogIn = ({navigation}) => {
       .then(() => setAuthError(false))
       .catch(() => setAuthError(true));
   };
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <MainContainerLog>
       <TopContainerLog>

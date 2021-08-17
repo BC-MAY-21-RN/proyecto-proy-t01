@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const MainContainerHome = styled.View`
-  background-color: blue;
+  background-color: white;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -9,7 +9,7 @@ export const MainContainerHome = styled.View`
 `;
 
 export const TextCustom = styled.Text`
-  color: white;
+  color: black;
   font-size: 20px;
   font-weight: 700;
 `;

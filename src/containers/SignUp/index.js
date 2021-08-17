@@ -9,7 +9,7 @@ import {
   TopContainer,
   ButtonContainer,
   InputTextContainer,
-} from './styledComponent';
+} from './styledComponents';
 import {
   CheckBoxField,
   TextInputField,
@@ -69,7 +69,6 @@ const SignUp = ({navigation}) => {
                 formControlName={span('passwordLow')}
                 label={span('password')}
                 icon={showPassword ? 'visibility' : 'visibility-off'}
-                onPress={() => setShowPassword(!showPassword)}
                 isPassword
               />
             </InputTextContainer>

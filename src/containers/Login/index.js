@@ -56,6 +56,7 @@ const LogIn = ({navigation}) => {
                 label={span('password')}
                 icon="visibility"
                 authError={authError && span('wrongAuth')}
+                isPassword
               />
             </InputTextContainerLog>
             <ButtonContainerLog>

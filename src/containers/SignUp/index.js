@@ -21,7 +21,6 @@ import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
 
 const SignUp = ({navigation}) => {
   const [emailInUseError, setEmailInUseError] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   const handleSignIn = values => {
     const {name, email, password} = values;
     signInWithNameEmailAndPassword(name, email, password)
@@ -68,7 +67,6 @@ const SignUp = ({navigation}) => {
                 {...formProps}
                 formControlName={span('passwordLow')}
                 label={span('password')}
-                icon={showPassword ? 'visibility' : 'visibility-off'}
                 isPassword
               />
             </InputTextContainer>

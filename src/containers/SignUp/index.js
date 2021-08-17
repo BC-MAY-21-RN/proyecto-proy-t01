@@ -70,7 +70,7 @@ const SignUp = ({navigation}) => {
                 label={span('password')}
                 icon={showPassword ? 'visibility' : 'visibility-off'}
                 onPress={() => setShowPassword(!showPassword)}
-                // secureTextEntry={!showPassword}
+                isPassword
               />
             </InputTextContainer>
             <CheckBoxField

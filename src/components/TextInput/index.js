@@ -19,6 +19,7 @@ const TextInputField = props => {
     errors,
     touched,
     authError,
+    isPassword,
   } = props;
 
   const [showPassword, setShowPassword] = useState(false);
@@ -33,13 +34,13 @@ const TextInputField = props => {
           onChangeText={handleChange(formControlName)}
           onBlur={handleBlur(formControlName)}
           value={values[formControlName]}
-          secureTextEntry={!showPassword}
-          s
+          secureTextEntry={isPassword && !showPassword}
         />
         <InputIcon
-          name={icon}
-          onPress={() => setShowPassword(!showPassword)}
-          // name={showPassword ? 'visibility' : 'visibility-off'}
+          name={
+            isPassword ? (showPassword ? 'visibility' : 'visibility-off') : icon
+          }
+          onPress={() => isPassword && setShowPassword(!showPassword)}
         />
       </InputContainer>
       <AlertText>

@@ -10,7 +10,7 @@ export const MainContainer = styled.SafeAreaView`
 
 export const TopContainer = styled.View`
   margin-top: 30px;
-  height: 34%;
+  height: 31%;
 `;
 
 export const InputTextContainer = styled.View`

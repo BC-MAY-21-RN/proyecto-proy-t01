@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Formik} from 'formik';
-import {logInWithEmailAndPassword} from '../../library/hooks/authControl';
+import {logInWithEmailAndPassword} from '../../components/helpers/firebaseSignUp';
 import {logInValidationSchema} from '../../constants/schemas/logInValidationSchema';
 import {span} from '../../i18n/es';
 import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';

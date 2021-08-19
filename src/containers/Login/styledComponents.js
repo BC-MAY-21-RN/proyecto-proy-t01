@@ -5,7 +5,7 @@ import {
   InputContainer,
   ButtonContainer,
   InputTextContainer,
-} from '../SignUp/styledComponent';
+} from '../SignUp/styledComponents';
 
 export const MainContainerLog = styled(MainContainer)``;
 export const TopContainerLog = styled(TopContainer)``;

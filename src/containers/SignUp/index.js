@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Formik} from 'formik';
 import {span} from '../../i18n/es';
 import {signUpValidationSchema} from '../../constants/schemas/signUpValidationSchema';
-import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
+import {signInWithNameEmailAndPassword} from '../../components/helpers/firebaseSignUp';
 import {
   MainContainer,
   InputContainer,

@@ -4,3 +4,4 @@ import SignUp from './SignUp';
 import Profile from './Profile';
 
 export {LogIn, SignUp, Home, Profile};
+

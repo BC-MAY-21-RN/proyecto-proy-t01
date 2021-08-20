@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Formik} from 'formik';
 import {span} from '../../i18n/es';
 import {signUpValidationSchema} from '../../constants/schemas/signUpValidationSchema';
-import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
+import {signInWithNameEmailAndPassword} from '../../components/helpers/firebaseSignUp';
 import {
   MainContainer,
   InputContainer,
@@ -23,7 +23,7 @@ const SignUp = ({navigation}) => {
   const [emailInUseError, setEmailInUseError] = useState(false);
   const handleSignIn = values => {
     const {name, email, password} = values;
-    signInWithNameEmailAndPassword(name, email, password)
+    signInWithNameEmailAndPassword(name, email, password, navigation)
       .then(() => {
         setEmailInUseError(false);
       })
@@ -82,7 +82,7 @@ const SignUp = ({navigation}) => {
               />
               <CustomButton
                 text={span('registerGoogle')}
-                onPress={() => onGoogleButtonPress()}
+                onPress={() => onGoogleButtonPress(navigation)}
               />
               <TextLink
                 onPress={() => {

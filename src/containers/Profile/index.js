@@ -4,6 +4,7 @@ import {span} from '../../i18n/es';
 import {signUpValidationSchema} from '../../constants/schemas/signUpValidationSchema';
 import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
 import {TextInputField, CustomButton} from '../../components';
+import {LogOut} from '../../components/helpers/firebaseSignUp';
 import {
   MainContainerProfile,
   ProfileContainer,
@@ -70,6 +71,8 @@ const Profile = () => {
                   text={span('update')}
                   onPress={formProps.handleSubmit}
                 />
+                    <CustomButton text={span('logout')} onPress={() => LogOut(navigation)} />
+
               </ButtonContainerProfile>
             </InputContainerProfile>
           )}

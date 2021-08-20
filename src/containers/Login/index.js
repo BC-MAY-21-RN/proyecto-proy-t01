@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Formik} from 'formik';
-import {logInWithEmailAndPassword} from '../../library/hooks/authControl';
+import {logInWithEmailAndPassword} from '../../components/helpers/firebaseSignUp';
 import {logInValidationSchema} from '../../constants/schemas/logInValidationSchema';
 import {span} from '../../i18n/es';
 import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
@@ -23,7 +23,7 @@ const LogIn = ({navigation}) => {
 
   const handleLogIn = values => {
     const {email, password} = values;
-    logInWithEmailAndPassword(email, password)
+    logInWithEmailAndPassword(email, password, navigation)
       .then(() => setAuthError(false))
       .catch(() => setAuthError(true));
   };
@@ -65,7 +65,7 @@ const LogIn = ({navigation}) => {
               />
               <CustomButton
                 text={span('loginGoogle')}
-                onPress={() => onGoogleButtonPress()}
+                onPress={() => onGoogleButtonPress(navigation)}
               />
               <TextLink
                 onPress={() => {

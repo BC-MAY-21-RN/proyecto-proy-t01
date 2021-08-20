@@ -23,7 +23,7 @@ const SignUp = ({navigation}) => {
   const [emailInUseError, setEmailInUseError] = useState(false);
   const handleSignIn = values => {
     const {name, email, password} = values;
-    signInWithNameEmailAndPassword(name, email, password)
+    signInWithNameEmailAndPassword(name, email, password, navigation)
       .then(() => {
         setEmailInUseError(false);
       })
@@ -82,7 +82,7 @@ const SignUp = ({navigation}) => {
               />
               <CustomButton
                 text={span('registerGoogle')}
-                onPress={() => onGoogleButtonPress()}
+                onPress={() => onGoogleButtonPress(navigation)}
               />
               <TextLink
                 onPress={() => {

@@ -31,6 +31,7 @@ I18n.translations = {
     welcome: '¡Bienvenido de',
     new: 'Nuev',
     wrongAuth: '*Correo y contraseña no coinciden',
+    logout: 'Cerrar sesión',
   },
 };
 

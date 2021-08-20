@@ -23,7 +23,7 @@ const LogIn = ({navigation}) => {
 
   const handleLogIn = values => {
     const {email, password} = values;
-    logInWithEmailAndPassword(email, password)
+    logInWithEmailAndPassword(email, password, navigation)
       .then(() => setAuthError(false))
       .catch(() => setAuthError(true));
   };
@@ -65,7 +65,7 @@ const LogIn = ({navigation}) => {
               />
               <CustomButton
                 text={span('loginGoogle')}
-                onPress={() => onGoogleButtonPress()}
+                onPress={() => onGoogleButtonPress(navigation)}
               />
               <TextLink
                 onPress={() => {

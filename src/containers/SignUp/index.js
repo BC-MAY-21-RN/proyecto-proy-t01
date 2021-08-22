@@ -16,6 +16,7 @@ import {
   CustomButton,
   TextLink,
   DogImage,
+  LoadingPage,
 } from '../../components';
 import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
 
@@ -34,6 +35,7 @@ const SignUp = ({navigation}) => {
 
   return (
     <MainContainer>
+      <LoadingPage />
       <TopContainer>
         <DogImage isSignedUp />
       </TopContainer>

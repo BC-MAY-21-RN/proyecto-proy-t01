@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import colors from '../../constants/colors';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const ModalContainer = styled.View`
   flex-direction: column;
@@ -30,4 +31,9 @@ export const TextCustom = styled.Text`
   font-size: 18px;
   letter-spacing: 1px;
   margin-top: 30px;
+`;
+
+export const SignedUpIcon = styled(Icon)`
+  font-size: 55px;
+  color: ${colors.white};
 `;

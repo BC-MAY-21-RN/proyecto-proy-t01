@@ -33,6 +33,7 @@ I18n.translations = {
     wrongAuth: '*Correo y contraseña no coinciden',
     logout: 'Cerrar sesión',
     signingUp: 'Signing up...',
+    signedUp: 'Signed up',
   },
 };
 

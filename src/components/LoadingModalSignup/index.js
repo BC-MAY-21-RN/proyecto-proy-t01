@@ -1,9 +1,18 @@
 import React from 'react';
-import {ModalContainer, Spinner} from './styledComponent';
+import {span} from './../../i18n/es';
+import {
+  ModalContainer,
+  ModalBackground,
+  Spinner,
+  TextCustom,
+} from './styledComponent';
 
 const LoadingPage = ({status}) => (
   <ModalContainer>
-    <Spinner size="large" color="white"></Spinner>
+    <ModalBackground>
+      <Spinner size="large" color="white"></Spinner>
+      <TextCustom>{span('signingUp')}</TextCustom>
+    </ModalBackground>
   </ModalContainer>
 );
 

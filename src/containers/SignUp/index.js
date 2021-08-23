@@ -21,21 +21,30 @@ import {
 import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
 
 const SignUp = ({navigation}) => {
+  const [status, setStatus] = useState(false);
   const [emailInUseError, setEmailInUseError] = useState(false);
   const handleSignIn = values => {
+    setStatus('loading');
     const {name, email, password} = values;
     signInWithNameEmailAndPassword(name, email, password, navigation)
       .then(() => {
         setEmailInUseError(false);
+        setStatus('signedUp');
       })
       .catch(() => {
         setEmailInUseError(true);
+        setStatus(false);
+      })
+      .finally(() => {
+        setLoading(false);
+        console.log(status);
       });
   };
 
   return (
     <MainContainer>
-      <LoadingPage />
+      {status === 'loading' && <LoadingPage status={'loading'} />}
+      {/* <LoadingPage /> */}
       <TopContainer>
         <DogImage isSignedUp />
       </TopContainer>

@@ -53,7 +53,6 @@ const SignUp = ({navigation}) => {
           setStatus={setStatus}
         />
       )}
-
       <TopContainer>
         <DogImage isSignedUp />
       </TopContainer>

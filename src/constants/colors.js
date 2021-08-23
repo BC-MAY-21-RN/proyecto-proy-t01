@@ -14,6 +14,7 @@ const colors = {
   pink: '#f99192',
   blue_m: '#385a7c',
   pink_m: '#f97171',
+  background_opacity: 'rgba(0,0,0,0.5)',
 };
 
 export default colors;

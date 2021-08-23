@@ -35,13 +35,11 @@ export const signInWithNameEmailAndPassword = (
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(({user}) => {
-        user
-          .updateProfile({displayName: name})
-          .then(
-            () => resolve('User created & signed in'),
-            createAditionalData(name, email),
-            navigation.navigate('LogIn'),
-          );
+        user.updateProfile({displayName: name}).then(
+          () => resolve('User created & signed in'),
+          createAditionalData(name, email),
+          // navigation.navigate('LogIn'),
+        );
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {

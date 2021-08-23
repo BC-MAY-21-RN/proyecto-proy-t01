@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Formik} from 'formik';
 import {span} from '../../i18n/es';
 import {signUpValidationSchema} from '../../constants/schemas/signUpValidationSchema';

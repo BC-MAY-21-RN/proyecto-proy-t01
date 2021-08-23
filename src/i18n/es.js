@@ -34,6 +34,8 @@ I18n.translations = {
     logout: 'Cerrar sesión',
     signingUp: 'Registrando...',
     signedUp: 'Completado',
+    update: 'Actualizar',
+
   },
 };
 

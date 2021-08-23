@@ -13,7 +13,7 @@ export const StyledImage = styled.Image`
 export const StyledMainTitle = styled.Text`
   position: absolute;
   margin-top: 30px;
-  margin-left: 170px;
+  margin-left: 172px;
   font-size: 28px;
   color: ${colors.white};
   font-weight: 700;
@@ -21,19 +21,19 @@ export const StyledMainTitle = styled.Text`
 
 export const StyledTitle = styled(StyledMainTitle)`
   margin-top: 70px;
-  margin-left: 242px;
+  margin-left: 244px;
   font-size: 44px;
   color: ${colors.blue_m};
 `;
 
 export const StyledChar = styled(StyledTitle)`
-  margin-left: 380px;
+  margin-left: 382px;
 `;
 
 export const MainTitleIcon = styled(Icon)`
   position: absolute;
   margin-top: 80px;
-  margin-left: 342px;
+  margin-left: 344px;
   font-size: 40px;
   color: ${colors.blue_m};
 `;

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Formik} from 'formik';
 import {span} from '../../i18n/es';
 import {signUpValidationSchema} from '../../constants/schemas/signUpValidationSchema';
-import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
+import {signInWithNameEmailAndPassword} from '../../components/helpers/firebaseSignUp';
 import {TextInputField, CustomButton} from '../../components';
 import {LogOut} from '../../components/helpers/firebaseSignUp';
 import {
@@ -13,9 +13,11 @@ import {
   InputTextContainerProfile,
   ButtonContainerProfile,
   ProfileIcon,
+  LogOutContainer,
+  LogOutText,
 } from './styledComponents';
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   const [emailInUseError, setEmailInUseError] = useState(false);
   const handleSignIn = values => {
     const {name, email, password} = values;
@@ -30,8 +32,11 @@ const Profile = () => {
 
   return (
     <MainContainerProfile>
-      <ProfileIcon name="logout" />
       <ProfileContainer>
+        <LogOutContainer>
+          <ProfileIcon name="logout" />
+          <LogOutText onPress={() => LogOut(navigation)}>Salir</LogOutText>
+        </LogOutContainer>
         <ProfileImage source={require('../../constants/img/profile.jpg')} />
         <Formik
           validationSchema={signUpValidationSchema}
@@ -39,7 +44,6 @@ const Profile = () => {
             name: '',
             email: '',
             password: '',
-            agreeTerms: true,
           }}
           validateOnMount={true}
           onSubmit={values => handleSignIn(values)}>
@@ -71,8 +75,6 @@ const Profile = () => {
                   text={span('update')}
                   onPress={formProps.handleSubmit}
                 />
-                    <CustomButton text={span('logout')} onPress={() => LogOut(navigation)} />
-
               </ButtonContainerProfile>
             </InputContainerProfile>
           )}

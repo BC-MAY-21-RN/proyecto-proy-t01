@@ -14,5 +14,5 @@ export const InputTextContainerLog = styled(InputTextContainer)`
   margin-top: 24px;
 `;
 export const ButtonContainerLog = styled(ButtonContainer)`
-  margin-top: 100px;
+  margin-top: 152px;
 `;

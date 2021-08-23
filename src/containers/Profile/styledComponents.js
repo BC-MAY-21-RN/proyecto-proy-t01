@@ -15,13 +15,31 @@ export const MainContainerProfile = styled(MainContainer)`
 `;
 
 export const ProfileContainer = styled.View`
-  height: 670px;
+  height: 700px;
   width: 380px;
   border-radius: 20px;
   background-color: ${colors.white};
   align-items: center;
-  padding: 30px;
-  margin-top: 20px;
+  padding: 10px;
+`;
+
+export const LogOutContainer = styled.View`
+  display: flex;
+  flex-direction: row;
+  width: 74px;
+  height: 26px;
+  border-radius: 10px;
+  justify-content: center;
+  align-self: flex-end;
+  background-color: ${colors.red};
+  margin-bottom: 30px;
+`;
+
+export const LogOutText = styled.Text`
+  align-self: center;
+  margin-left: 4px;
+  font-size: 16px;
+  color: ${colors.white};
 `;
 
 export const ProfileImage = styled.Image`
@@ -32,9 +50,8 @@ export const ProfileImage = styled.Image`
 `;
 
 export const ProfileIcon = styled(Icon)`
-  align-self: flex-end;
-  padding-right: 12px;
-  font-size: 34px;
+  align-self: center;
+  font-size: 20px;
   color: ${colors.white};
 `;
 

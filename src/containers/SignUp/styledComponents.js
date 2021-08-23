@@ -21,11 +21,10 @@ export const InputContainer = styled.View`
   align-self: center;
   width: 380px;
   height: 530px;
-  /* height: 66%; */
   border-radius: 20px;
   background-color: ${colors.white};
 `;
 
 export const ButtonContainer = styled.View`
-  margin-top: 0px;
+  margin-top: 30px;
 `;

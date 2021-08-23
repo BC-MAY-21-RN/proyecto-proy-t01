@@ -62,5 +62,5 @@ export const InputTextContainerProfile = styled(InputTextContainer)`
   margin-top: 50px;
 `;
 export const ButtonContainerProfile = styled(ButtonContainer)`
-  margin-top: 80px;
+  margin-top: 160px;
 `;

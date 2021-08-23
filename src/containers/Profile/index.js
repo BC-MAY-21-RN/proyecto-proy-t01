@@ -18,16 +18,9 @@ import {
 } from './styledComponents';
 
 const Profile = ({navigation}) => {
-  const [emailInUseError, setEmailInUseError] = useState(false);
   const handleSignIn = values => {
-    const {name, email, password} = values;
-    signInWithNameEmailAndPassword(name, email, password)
-      .then(() => {
-        setEmailInUseError(false);
-      })
-      .catch(() => {
-        setEmailInUseError(true);
-      });
+    const {name, password} = values;
+    signInWithNameEmailAndPassword(name, password);
   };
 
   return (
@@ -42,7 +35,6 @@ const Profile = ({navigation}) => {
           validationSchema={signUpValidationSchema}
           initialValues={{
             name: '',
-            email: '',
             password: '',
           }}
           validateOnMount={true}
@@ -55,13 +47,6 @@ const Profile = ({navigation}) => {
                   formControlName={span('nameLow')}
                   label={span('name')}
                   icon="person"
-                />
-                <TextInputField
-                  {...formProps}
-                  formControlName={span('emailLow')}
-                  label={span('email')}
-                  authError={emailInUseError && span('emailUsed')}
-                  icon="email"
                 />
                 <TextInputField
                   {...formProps}

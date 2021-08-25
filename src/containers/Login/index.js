@@ -60,6 +60,7 @@ const LogIn = ({navigation}) => {
             </InputTextContainerLog>
             <ButtonContainerLog>
               <CustomButton
+                isDisabled={!formProps.isValid}
                 text={span('login')}
                 onPress={formProps.handleSubmit}
               />

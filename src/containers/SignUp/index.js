@@ -96,6 +96,7 @@ const SignUp = ({navigation}) => {
             />
             <ButtonContainer>
               <CustomButton
+                isDisabled={!formProps.isValid}
                 text={span('register')}
                 onPress={formProps.handleSubmit}
               />

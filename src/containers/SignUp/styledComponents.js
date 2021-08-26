@@ -18,7 +18,9 @@ export const InputTextContainer = styled.View`
 `;
 
 export const InputContainer = styled.View`
-  height: 66%;
+  align-self: center;
+  width: 380px;
+  height: 530px;
   border-radius: 20px;
   background-color: ${colors.white};
 `;

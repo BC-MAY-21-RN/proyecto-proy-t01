@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Formik} from 'formik';
 import {span} from '../../i18n/es';
 import {signUpValidationSchema} from '../../constants/schemas/signUpValidationSchema';
-import {signInWithNameEmailAndPassword} from '../../library/hooks/authControl';
+import {signInWithNameEmailAndPassword} from '../../components/helpers/firebaseSignUp';
 import {
   MainContainer,
   InputContainer,
@@ -16,24 +16,43 @@ import {
   CustomButton,
   TextLink,
   DogImage,
+  LoadingPage,
 } from '../../components';
 import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
 
 const SignUp = ({navigation}) => {
+  const [loading, setLoading] = useState(false);
   const [emailInUseError, setEmailInUseError] = useState(false);
+  const [status, setStatus] = useState(false);
+
   const handleSignIn = values => {
     const {name, email, password} = values;
-    signInWithNameEmailAndPassword(name, email, password)
+    setStatus('loading');
+    signInWithNameEmailAndPassword(name, email, password, navigation)
       .then(() => {
         setEmailInUseError(false);
+        setStatus('signedUp');
       })
       .catch(() => {
         setEmailInUseError(true);
+        setStatus('false');
+      })
+      .finally(() => {
+        setLoading(false);
+        console.log(status);
       });
   };
 
   return (
     <MainContainer>
+      {status === 'loading' && <LoadingPage status={'loading'} />}
+      {status === 'signedUp' && (
+        <LoadingPage
+          status={'signedUp'}
+          navigation={navigation}
+          setStatus={setStatus}
+        />
+      )}
       <TopContainer>
         <DogImage isSignedUp />
       </TopContainer>
@@ -77,12 +96,13 @@ const SignUp = ({navigation}) => {
             />
             <ButtonContainer>
               <CustomButton
+                isDisabled={!formProps.isValid}
                 text={span('register')}
                 onPress={formProps.handleSubmit}
               />
               <CustomButton
                 text={span('registerGoogle')}
-                onPress={() => onGoogleButtonPress()}
+                onPress={() => onGoogleButtonPress(navigation)}
               />
               <TextLink
                 onPress={() => {

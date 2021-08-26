@@ -11,6 +11,7 @@ const listScreens = [
   {name: 'Home', component: TabNavigator},
   {name: 'SignUp', component: SignUp},
   {name: 'LogIn', component: LogIn},
+  {name: 'Profile', component: TabNavigator},
 ];
 
 const screens = listScreens.map(({name, component}) => (

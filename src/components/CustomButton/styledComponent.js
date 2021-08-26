@@ -14,3 +14,11 @@ export const TextCustom = styled.Text`
   align-self: center;
   color: ${colors.white};
 `;
+
+export const DisabledButton = styled.Pressable`
+  height: 46px;
+  margin: 10px 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: ${colors.dark_gray};
+`;

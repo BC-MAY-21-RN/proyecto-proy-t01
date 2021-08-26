@@ -35,7 +35,9 @@ I18n.translations = {
     signingUp: 'Registrando...',
     signedUp: 'Completado',
     update: 'Actualizar',
-
+    small: 'Pequeño',
+    medium: 'Mediano',
+    big: 'Grande',
   },
 };
 

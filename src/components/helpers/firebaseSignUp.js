@@ -3,7 +3,6 @@ import firestore from '@react-native-firebase/firestore';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {useEffect} from 'react';
 import {WEB_CLIENT_ID} from '@env';
-import {profilePic} from '../../containers/Profile';
 export const useGoogleConfiguration = () => {
   useEffect(() => {
     GoogleSignin.configure({
@@ -35,11 +34,13 @@ export const signInWithNameEmailAndPassword = (
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(({user}) => {
-        user.updateProfile({displayName: name}).then(
-          () => resolve('User created & signed in'),
-          createAditionalData(name, email),
-          // navigation.navigate('LogIn'),
-        );
+        user
+          .updateProfile({displayName: name})
+          .then(
+            () => resolve('User created & signed in'),
+            createAditionalData(name, email),
+            navigation.navigate('LogIn'),
+          );
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
@@ -76,7 +77,7 @@ export const createAditionalData = (name, email) => {
     .set({
       name: name || auth().currentUser.displayName,
       email: email || auth().currentUser.email,
-      userImg: profilePic,
+      userImg: '',
     });
 };
 

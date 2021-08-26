@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../constants/colors';
 import {
-  DogName,
-  CardContainer,
-  ImageContainer,
-  StyledImage,
-  InfoContainer,
   BottomView,
-  ShelterText,
-  UpperView,
+  CardContainer,
+  DogName,
   HeartIcon,
+  ImageContainer,
+  InfoContainer,
+  ShelterText,
+  StyledImage,
+  UpperView,
 } from './styledComponents';
 
 const DogCard = props => {
@@ -30,7 +30,7 @@ const DogCard = props => {
           <HeartIcon>
             <Icon
               onPress={() => setSelection(!isSelected)}
-              color={colors.brown}
+              color={colors.red}
               name={isSelected ? 'favorite' : 'favorite-border'}
               size={24}
             />

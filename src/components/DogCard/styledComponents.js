@@ -50,7 +50,6 @@ export const DogName = styled.Text`
   font-size: 20px;
   font-family: 'Poppins-SemiBold';
   margin-right: 100px;
-
 `;
 
 export const ShelterText = styled.Text`

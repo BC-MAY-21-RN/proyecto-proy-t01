@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
 import {DogCard} from '../../components';
-import {MainContainerHome} from './styledComponents';
 import {ScrollView} from 'react-native';
+import {SectionList} from '../../components';
+import {MainContainerHome} from './styledComponents';
+import React from 'react';
 
-const Home = ({navigation}) => {
+const Home = () => {
   return (
     <MainContainerHome>
       <ScrollView showsVerticalScrollIndicator={false}>
+        <SectionList />
         <DogCard
           name="Paco"
           photo={require('../../constants/img/dogAdopt.png')}

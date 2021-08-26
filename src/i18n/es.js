@@ -32,6 +32,10 @@ I18n.translations = {
     new: 'Nuev',
     wrongAuth: '*Correo y contraseña no coinciden',
     logout: 'Cerrar sesión',
+    signingUp: 'Registrando...',
+    signedUp: 'Completado',
+    update: 'Actualizar',
+
   },
 };
 

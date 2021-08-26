@@ -1,34 +1,38 @@
-import React from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from '../../constants/colors';
-import {
-  MainContainerHome,
-  DogName,
-  DogContainer,
-  ImageContainer,
-  StyledImage,
-  InfoContainer,
-  BottomView,
-  ShelterText,
-  UpperView,
-} from './styledComponents';
+import React, {useState} from 'react';
+import {DogCard} from '../../components';
+import {MainContainerHome} from './styledComponents';
+import {ScrollView} from 'react-native';
 
 const Home = ({navigation}) => {
   return (
     <MainContainerHome>
-      <DogContainer>
-        <ImageContainer />
-        <InfoContainer>
-          <UpperView>
-            <DogName>Paco</DogName>
-            <Icon color={colors.pink} name="favorite" size={24} />
-          </UpperView>
-          <BottomView>
-            <ShelterText>Patitas de Amor</ShelterText>
-          </BottomView>
-        </InfoContainer>
-      </DogContainer>
-      <StyledImage source={require('../../constants/img/dogAdopt.png')} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <DogCard
+          name="Paco"
+          photo={require('../../constants/img/dogAdopt.png')}
+          shelter="Latidos Caninos"
+        />
+        <DogCard
+          name="Max"
+          photo={require('../../constants/img/dogAdopt2.png')}
+          shelter="San Cristobal"
+        />
+        <DogCard
+          name="Lola"
+          photo={require('../../constants/img/dogAdopt3.png')}
+          shelter="Latidos Caninos"
+        />
+        <DogCard
+          name="Rocky"
+          photo={require('../../constants/img/dogAdopt4.png')}
+          shelter="Amor Sin Raza"
+        />
+        <DogCard
+          name="Matilda"
+          photo={require('../../constants/img/dogAdopt5.png')}
+          shelter="Amor Sin Raza"
+        />
+      </ScrollView>
     </MainContainerHome>
   );
 };

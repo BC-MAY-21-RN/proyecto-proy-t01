@@ -1,10 +1,11 @@
 import React from 'react';
-import {MainContainerHome, TextCustom} from './styledComponents';
+import {MainContainerHome} from './styledComponents';
+import {SectionList} from '../../components';
 
 const Home = ({navigation}) => {
   return (
     <MainContainerHome>
-      <TextCustom>HOME</TextCustom>
+      <SectionList />
     </MainContainerHome>
   );
 };

@@ -8,8 +8,3 @@ export const MainContainerHome = styled.View`
   align-items: center;
 `;
 
-export const TextCustom = styled.Text`
-  color: black;
-  font-size: 20px;
-  font-weight: 700;
-`;

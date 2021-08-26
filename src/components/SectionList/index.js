@@ -1,34 +1,22 @@
-import React from 'react';
-import {View, Text, FlatList} from 'react-native';
-import RecipeItem from './RecipeItem';
-import style from '../../assets/style';
-
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
-  },
-];
+import React, {useState} from 'react';
+import {FlatList} from 'react-native';
+import colors from '../../constants/colors';
+import Sections from '../../constants/sections';
+import {TextSection, SectionContainer, SectionItem} from './styledComponents';
 
 const Item = ({item, onPress, backgroundColor, textColor}) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-    <Text style={[styles.title, textColor]}>{item.title}</Text>
-  </TouchableOpacity>
+  <SectionItem onPress={onPress} style={backgroundColor}>
+    <TextSection style={textColor}>{item.title}</TextSection>
+  </SectionItem>
 );
 
-const SectionList = ({navigation, recipes, cardSize, listTitle}) => {
+const SectionList = () => {
   const [selectedId, setSelectedId] = useState(null);
   const renderItem = ({item}) => {
-    const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
-    const color = item.id === selectedId ? 'white' : 'black';
+    const backgroundColor =
+      item.id === selectedId ? colors.red : colors.white;
+    const color = item.id === selectedId ? colors.white : colors.dark;
+
     return (
       <Item
         item={item}
@@ -38,32 +26,18 @@ const SectionList = ({navigation, recipes, cardSize, listTitle}) => {
       />
     );
   };
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SectionContainer>
       <FlatList
-        data={DATA}
+        data={Sections}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         extraData={selectedId}
         horizontal
       />
-    </SafeAreaView>
+    </SectionContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  title: {
-    fontSize: 32,
-  },
-});
 
 export default SectionList;

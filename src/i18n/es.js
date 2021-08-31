@@ -31,13 +31,14 @@ I18n.translations = {
     welcome: '¡Bienvenido de',
     new: 'Nuev',
     wrongAuth: '*Correo y contraseña no coinciden',
-    logout: 'Cerrar sesión',
+    logout: 'Cerrar Sesión',
     signingUp: 'Registrando...',
     signedUp: 'Completado',
     update: 'Actualizar',
     small: 'Pequeño',
     medium: 'Mediano',
     big: 'Grande',
+    editProfile: 'Editar Perfil',
   },
 };
 

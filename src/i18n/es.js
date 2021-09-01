@@ -38,6 +38,7 @@ I18n.translations = {
     small: 'Pequeño',
     medium: 'Mediano',
     big: 'Grande',
+    exit: 'Salir',
   },
 };
 

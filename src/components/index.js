@@ -6,6 +6,7 @@ import DogCard from './DogCard';
 import DogImage from './DogImage';
 import LoadingPage from './LoadingModalSignup';
 import SectionList from './SectionList';
+import PetList from './PetList';
 
 export {
   CheckBoxField,
@@ -16,4 +17,5 @@ export {
   LoadingPage,
   DogCard,
   SectionList,
+  PetList
 };

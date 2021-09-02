@@ -28,7 +28,7 @@ const Profile = ({navigation}) => {
       <ProfileContainer>
         <LogOutContainer>
           <ProfileIcon name="logout" />
-          <LogOutText onPress={() => LogOut(navigation)}>Salir</LogOutText>
+          <LogOutText onPress={() => LogOut(navigation)}>{span('exit')}</LogOutText>
         </LogOutContainer>
         <ProfileImage source={require('../../constants/img/profile.jpg')} />
         <Formik

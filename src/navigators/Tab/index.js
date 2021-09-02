@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {Home, Profile} from '../../containers/';
+import {Home, Profile, Favorites} from '../../containers/';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../constants/colors';
@@ -17,7 +17,7 @@ const listItems = [
   {
     key: 2,
     name: 'Favoritos',
-    component: Home,
+    component: Favorites,
     icon: 'favorite',
   },
   {

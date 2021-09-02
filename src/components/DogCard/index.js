@@ -14,12 +14,12 @@ import {
 } from './styledComponents';
 
 const DogCard = props => {
-  const {name, shelter, photo} = props;
+  const {name, shelter, image} = props;
   const [isSelected, setSelection] = useState(false);
   return (
     <CardContainer>
       <ImageContainer>
-        <StyledImage source={photo} />
+        <StyledImage source={{ uri: image}} />
       </ImageContainer>
       <InfoContainer>
         <UpperView>

@@ -1,11 +1,5 @@
 import styled from 'styled-components/native';
 
-export const SectionContainer = styled.SafeAreaView`
-  flex: 1;
-  align-self: center;
-  margin-top: 8px;
-`;
-
 export const TextSection = styled.Text`
   font-size: 15px;
   align-self: center;

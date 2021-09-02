@@ -39,6 +39,7 @@ I18n.translations = {
     medium: 'Mediano',
     big: 'Grande',
     editProfile: 'Editar Perfil',
+    exit: 'Salir',
   },
 };
 

@@ -2,12 +2,13 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {LogIn, SignUp} from '../../containers';
+import {LogIn, SignUp, DogsDetails} from '../../containers';
 import TabNavigator from '../Tab';
 
 const Stack = createStackNavigator();
 
 const listScreens = [
+  {name: 'DogsDetails', component: DogsDetails},
   {name: 'LogIn', component: LogIn},
   {name: 'SignUp', component: SignUp},
   {name: 'Home', component: TabNavigator},

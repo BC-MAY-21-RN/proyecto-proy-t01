@@ -120,7 +120,7 @@ export const ShelterContainer = styled.View`
 `;
 
 export const ShelterTitle = styled.Text`
-  color: ${colors.ligh_grey};
+  color: ${colors.blue_m};
   font-size: 12px;
   font-family: 'Poppins-SemiBold';
 `;

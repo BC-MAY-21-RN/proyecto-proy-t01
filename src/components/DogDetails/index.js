@@ -60,9 +60,9 @@ const DogDetails = props => {
           <StoryContainer>
             <StoryTitle>Información</StoryTitle>
             <StoryDetails>
-              Es sociable, carácter juguetón y le gusta estar acompañado, juega
-              a la pelota. Convive bien con otros perros y niños. Max está
-              desparasitado, vacunado y esterilizado.
+              Es sociable, carácter juguetón y le gusta estar acompañado.
+              Convive bien con otros perros y niños. Max está desparasitado,
+              vacunado y esterilizado.
             </StoryDetails>
           </StoryContainer>
           <ShelterBoxContainer>

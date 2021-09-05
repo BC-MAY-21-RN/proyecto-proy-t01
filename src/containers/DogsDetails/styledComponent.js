@@ -6,5 +6,3 @@ export const MainContainerDogsDetails = styled.View`
   height: 100%;
   display: flex;
 `;
-
-export const DogPicture = styled.View``;

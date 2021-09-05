@@ -18,6 +18,7 @@ const colors = {
   medium_pink: '#FFF3EC',
   box_pink: '#FFAFAE',
   brown: '#514323',
+  pale_gray: '#e7e9eb',
   background_opacity: 'rgba(0,0,0,0.5)',
 };
 

@@ -11,5 +11,3 @@ const DogsDetails = () => {
 };
 
 export default DogsDetails;
-
-//   photo={require('../../constants/img/dogAdopt2.png')}

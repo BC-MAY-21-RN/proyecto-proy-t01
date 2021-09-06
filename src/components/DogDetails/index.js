@@ -16,10 +16,10 @@ import {
   StoryContainer,
   StoryTitle,
   StoryDetails,
-  ShelterBoxContainer,
-  ShelterContainer,
-  ShelterTitle,
-  ShelterName,
+  OtherDetailsBoxContainer,
+  OtherDetailsContainer,
+  OtherDetailsTitle,
+  OtherDetailsText,
   ShelterContactButton,
   ShelterContactButtonText,
 } from './styledComponent';
@@ -53,8 +53,8 @@ const DogDetails = props => {
               <DataBoxTextBold>2 años</DataBoxTextBold>
             </DataBox>
             <DataBox>
-              <DataBoxText>Color</DataBoxText>
-              <DataBoxTextBold>Café</DataBoxTextBold>
+              <DataBoxText>Talla</DataBoxText>
+              <DataBoxTextBold>Mediana</DataBoxTextBold>
             </DataBox>
           </BoxesContainer>
           <StoryContainer>
@@ -65,15 +65,17 @@ const DogDetails = props => {
               vacunado y esterilizado.
             </StoryDetails>
           </StoryContainer>
-          <ShelterBoxContainer>
-            <ShelterContainer>
-              <ShelterTitle>Refugio</ShelterTitle>
-              <ShelterName>Latidos Caninos</ShelterName>
-            </ShelterContainer>
+          <OtherDetailsBoxContainer>
+            <OtherDetailsContainer>
+              <OtherDetailsTitle>Vacunas</OtherDetailsTitle>
+              <OtherDetailsText>Rabia, Parvovirus, Moquillo</OtherDetailsText>
+              <OtherDetailsTitle>Esterilización</OtherDetailsTitle>
+              <OtherDetailsText>Sí</OtherDetailsText>
+            </OtherDetailsContainer>
             <ShelterContactButton>
               <ShelterContactButtonText>Contáctanos</ShelterContactButtonText>
             </ShelterContactButton>
-          </ShelterBoxContainer>
+          </OtherDetailsBoxContainer>
         </LowerDataContainer>
       </StyledImage>
     </DogDetailsContainer>

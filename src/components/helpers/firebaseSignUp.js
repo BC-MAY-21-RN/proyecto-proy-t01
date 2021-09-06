@@ -3,6 +3,8 @@ import firestore from '@react-native-firebase/firestore';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {useEffect} from 'react';
 import {WEB_CLIENT_ID} from '@env';
+import {profileImg} from '../../constants/img';
+
 export const useGoogleConfiguration = () => {
   useEffect(() => {
     GoogleSignin.configure({
@@ -38,7 +40,7 @@ export const signInWithNameEmailAndPassword = (
           .updateProfile({displayName: name})
           .then(
             () => resolve('User created & signed in'),
-            createAditionalData(name, email),
+            createAditionalData(name, email, profileImg),
             navigation.navigate('LogIn'),
           );
       })
@@ -77,7 +79,7 @@ export const createAditionalData = (name, email) => {
     .set({
       name: name || auth().currentUser.displayName,
       email: email || auth().currentUser.email,
-      userImg: '',
+      userImg: auth().currentUser.photoURL || profileImg,
     });
 };
 

@@ -1,69 +1,62 @@
-import React from 'react';
-import {Formik} from 'formik';
+import auth from '@react-native-firebase/auth';
+import React, {useState, useEffect} from 'react';
+import firestore from '@react-native-firebase/firestore';
 import {span} from '../../i18n/es';
-import {signUpValidationSchema} from '../../constants/schemas/signUpValidationSchema';
-import {signInWithNameEmailAndPassword} from '../../components/helpers/firebaseSignUp';
-import {TextInputField, CustomButton} from '../../components';
+import {CustomButton} from '../../components';
 import {LogOut} from '../../components/helpers/firebaseSignUp';
+import {defaultPhoto} from '../../constants/img';
 import {
   MainContainerProfile,
   ProfileContainer,
   ProfileImage,
   InputContainerProfile,
-  InputTextContainerProfile,
   ButtonContainerProfile,
   ProfileIcon,
   LogOutContainer,
   LogOutText,
+  UserName,
+  UserEmail,
 } from './styledComponents';
 
 const Profile = ({navigation}) => {
-  const handleSignIn = values => {
-    const {name, password} = values;
-    signInWithNameEmailAndPassword(name, password);
+  const [userData, setUserData] = useState();
+  const getUsers = () => {
+    firestore()
+      .collection('users')
+      .doc(auth().currentUser.uid)
+      .get()
+      .then(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          setUserData(documentSnapshot.data());
+        }
+      });
   };
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   return (
     <MainContainerProfile>
       <ProfileContainer>
         <LogOutContainer>
           <ProfileIcon name="logout" />
-          <LogOutText onPress={() => LogOut(navigation)}>Salir</LogOutText>
+          <LogOutText onPress={() => LogOut(navigation)}>
+            {span('exit')}
+          </LogOutText>
         </LogOutContainer>
-        <ProfileImage source={require('../../constants/img/profile.jpg')} />
-        <Formik
-          validationSchema={signUpValidationSchema}
-          initialValues={{
-            name: '',
-            password: '',
+        <ProfileImage
+          source={{
+            uri: userData ? userData.userImg : defaultPhoto,
           }}
-          validateOnMount={true}
-          onSubmit={values => handleSignIn(values)}>
-          {formProps => (
-            <InputContainerProfile>
-              <InputTextContainerProfile>
-                <TextInputField
-                  {...formProps}
-                  formControlName={span('nameLow')}
-                  label={span('name')}
-                  icon="person"
-                />
-                <TextInputField
-                  {...formProps}
-                  formControlName={span('passwordLow')}
-                  label={span('password')}
-                  isPassword
-                />
-              </InputTextContainerProfile>
-              <ButtonContainerProfile>
-                <CustomButton
-                  text={span('update')}
-                  onPress={formProps.handleSubmit}
-                />
-              </ButtonContainerProfile>
-            </InputContainerProfile>
-          )}
-        </Formik>
+        />
+        <InputContainerProfile>
+          <UserName>{userData ? userData.name : ''}</UserName>
+          <UserEmail>{userData ? userData.email : ''}</UserEmail>
+          <ButtonContainerProfile>
+            <CustomButton text={span('editProfile')} />
+          </ButtonContainerProfile>
+        </InputContainerProfile>
       </ProfileContainer>
     </MainContainerProfile>
   );

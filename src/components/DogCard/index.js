@@ -12,21 +12,22 @@ import {
   StyledImage,
   UpperView,
 } from './styledComponents';
+import {nullBckg} from '../../constants/img';
 
-const DogCard = props => {
-  const {name, shelter, image} = props;
+const DogCard = (props) => {
   const [isSelected, setSelection] = useState(false);
+  const dogsData =props
   return (
     <CardContainer>
       <ImageContainer>
-        <StyledImage source={{ uri: image}} />
+        <StyledImage source={{uri: dogsData ? dogsData.dogImg : nullBckg}} />
       </ImageContainer>
       <InfoContainer>
         <UpperView>
-          <DogName>{name}</DogName>
+          <DogName>{dogsData ? dogsData.name : ''}</DogName>
         </UpperView>
         <BottomView>
-          <ShelterText>{shelter}</ShelterText>
+          <ShelterText>{dogsData ? dogsData.shelter : ''}</ShelterText>
           <HeartIcon>
             <Icon
               onPress={() => setSelection(!isSelected)}

@@ -35,7 +35,7 @@ I18n.translations = {
     signingUp: 'Registrando...',
     signedUp: 'Completado',
     update: 'Actualizar',
-    small: 'Pequeño',
+    small: 'Chico',
     medium: 'Mediano',
     big: 'Grande',
     editProfile: 'Editar Perfil',

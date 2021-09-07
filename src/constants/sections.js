@@ -1,6 +1,6 @@
 import {span} from '../i18n/es';
 
-const Sections = [
+const sectionsList = [
   {
     id: '1',
     title: span('small'),
@@ -15,4 +15,4 @@ const Sections = [
   },
 ];
 
-export default Sections;
+export default sectionsList;

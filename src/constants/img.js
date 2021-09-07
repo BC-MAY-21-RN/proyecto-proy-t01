@@ -3,3 +3,6 @@ export const profileImg =
 
 export const defaultPhoto =
   'https://th.bing.com/th/id/R.af3cb9ba93844ac02fae2fefbc6a723b?rik=BePm8YVzH14KzQ&pid=ImgRaw&r=0';
+
+export const nullBckg =
+  'https://firebasestorage.googleapis.com/v0/b/pet-rescue-3bdb6.appspot.com/o/dogs%2Ffondo.png?alt=media&token=31be8b0c-c1ee-46eb-8a2d-06a81e39d96c';

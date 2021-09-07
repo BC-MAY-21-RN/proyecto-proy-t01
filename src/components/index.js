@@ -5,10 +5,9 @@ import CustomButton from './CustomButton';
 import DogCard from './DogCard';
 import DogImage from './DogImage';
 import LoadingPage from './LoadingModalSignup';
-import SectionList from './SectionList';
-import PetList from './PetList';
-
+import Filters from './Filters';
 export {
+  Filters,
   CheckBoxField,
   TextInputField,
   CustomButton,
@@ -16,6 +15,4 @@ export {
   DogImage,
   LoadingPage,
   DogCard,
-  SectionList,
-  PetList
 };

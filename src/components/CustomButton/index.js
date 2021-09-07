@@ -1,6 +1,4 @@
 import React from 'react';
-import {View, Text, Pressable} from 'react-native';
-import {onGoogleButtonPress} from '../helpers/firebaseSignUp';
 import {DisabledButton, StyledButton, TextCustom} from './styledComponent';
 
 const CustomButton = ({isDisabled, text, onPress}) => {

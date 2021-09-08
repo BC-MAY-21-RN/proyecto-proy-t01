@@ -6,7 +6,7 @@
       "image": "https://i.imgur.com/87JfS1G.png",
       "age": "6 años",
       "breed": "Mestizo",
-      "liked": true,
+      "liked": false,
       "sex": "Macho",
       "shelter": "San Cristóbal",
       "size": "Mediano",

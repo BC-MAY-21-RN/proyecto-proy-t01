@@ -1,13 +1,16 @@
 import React from 'react';
 import {PetList} from '../../components';
 import {MainContainerFav} from './styledComponents';
+import {pets} from '../../constants/pets.json';
 
-const Home = () => {
+const Favorites = () => {
+  const favs = pets.filter(pet => pet.liked === true);
+
   return (
     <MainContainerFav>
-      <PetList />
+      <PetList list={favs} />
     </MainContainerFav>
   );
 };
 
-export default Home;
+export default Favorites;

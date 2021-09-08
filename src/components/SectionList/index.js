@@ -59,7 +59,7 @@ const SectionList = () => {
         extraData={selectedId}
         horizontal
       />
-      <PetList size={dogSize} />
+      <PetList list={dogSize} />
     </>
   );
 };

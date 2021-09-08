@@ -13,35 +13,22 @@ import {
   StyledImage,
   UpperView,
 } from './styledComponents';
+import {nullBckg} from '../../constants/img';
 
-const DogCard = props => {
-  const {id, name, shelter, image, liked} = props;
+const DogCard = (props) => {
   const [isSelected, setSelection] = useState(false);
-  // console.log(liked);
-
-  // function setLiked(id, liked) {
-  //   for (var i = 0; i < pets.length; i++) {
-  //     // console.log(pets[i].liked);
-  //     if (pets[i].id === id) {
-  //       console.log(pets[i].liked);
-  //       pets[i].liked = liked;
-  //       console.log(pets[i].liked);
-  //       return;
-  //     }
-  //   }
-  // }
-
+  const dogsData =props
   return (
     <CardContainer>
       <ImageContainer>
-        <StyledImage source={{uri: image}} />
+        <StyledImage source={{uri: dogsData ? dogsData.dogImg : nullBckg}} />
       </ImageContainer>
       <InfoContainer>
         <UpperView>
-          <DogName>{name}</DogName>
+          <DogName>{dogsData ? dogsData.name : ''}</DogName>
         </UpperView>
         <BottomView>
-          <ShelterText>{shelter}</ShelterText>
+          <ShelterText>{dogsData ? dogsData.shelter : ''}</ShelterText>
           <HeartIcon>
             <Icon
               onPress={() => {

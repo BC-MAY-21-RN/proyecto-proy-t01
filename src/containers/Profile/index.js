@@ -28,6 +28,7 @@ const Profile = ({navigation}) => {
       .then(documentSnapshot => {
         if (documentSnapshot.exists) {
           setUserData(documentSnapshot.data());
+          console.log(documentSnapshot.data());
         }
       });
   };

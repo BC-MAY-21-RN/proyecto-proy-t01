@@ -6,5 +6,5 @@ export const MainContainerHome = styled.SafeAreaView`
   background-color: ${colors.light_pink};
   height: 100%;
   display: flex;
-  margin-top: 8px;
+  margin-bottom: 20px;
 `;

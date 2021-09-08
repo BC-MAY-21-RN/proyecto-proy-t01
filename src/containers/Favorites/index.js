@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {PetList} from '../../components';
 import {MainContainerFav} from './styledComponents';
-import {pets} from '../../constants/pets.json';
+import {getDogs} from '../../components/helpers/firebaseSignUp';
 
 const Favorites = () => {
-  const favs = pets.filter(pet => pet.liked === true);
+  const [dogsData, setDogsData] = useState();
+  const [validation, setValidationLiked] = useState(true);
+  const filter = 'liked';
+
+  useEffect(() => {
+    getDogs({filter, validation, setDogsData});
+  }, [validation]);
 
   return (
     <MainContainerFav>
-      <PetList list={favs} />
+      <PetList dogsData={dogsData} />
     </MainContainerFav>
   );
 };

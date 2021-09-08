@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../constants/colors';
-import {pets} from '../../constants/pets.json';
 import {
   BottomView,
   CardContainer,
@@ -15,9 +14,9 @@ import {
 } from './styledComponents';
 import {nullBckg} from '../../constants/img';
 
-const DogCard = (props) => {
+const DogCard = props => {
   const [isSelected, setSelection] = useState(false);
-  const dogsData =props
+  const dogsData = props;
   return (
     <CardContainer>
       <ImageContainer>
@@ -33,7 +32,6 @@ const DogCard = (props) => {
             <Icon
               onPress={() => {
                 setSelection(!isSelected);
-                setLiked(id, !liked);
               }}
               color={colors.red}
               name={isSelected ? 'favorite' : 'favorite-border'}

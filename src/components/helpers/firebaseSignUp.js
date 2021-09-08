@@ -86,3 +86,17 @@ export const createAditionalData = (name, email) => {
 export const LogOut = navigation => {
   auth().signOut().then(navigation.navigate('LogIn'));
 };
+
+export const getDogs = ({filter, validation, setDogsData}) => {
+  firestore()
+    .collection('smallDogs')
+    .where(filter, '==', validation)
+    .get()
+    .then(querySnapshot => {
+      let dogsList = [];
+      querySnapshot.forEach(documentSnapshot => {
+        dogsList.push(documentSnapshot.data());
+      });
+      setDogsData(dogsList);
+    });
+};

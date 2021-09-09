@@ -1,39 +1,21 @@
 import React, {useState, useEffect} from 'react';
-import {DogCard, Filters, SectionList, PetList} from '../../components';
+import {PetList, Filters} from '../../components';
 import {MainContainerHome} from './styledComponents';
-import firestore from '@react-native-firebase/firestore';
-import {FlatList} from 'react-native';
+import {getDogs} from '../../components/helpers/firebaseSignUp';
+
 const Home = () => {
   const [dogsData, setDogsData] = useState();
-  const [size, setSize] = useState('Grande');
-  const getDogs = () => {
-    firestore()
-      .collection('smallDogs')
-      .where('size', '==', size)
-      .get()
-      .then(querySnapshot => {
-        let dogsList = [];
-        querySnapshot.forEach(documentSnapshot => {
-          dogsList.push(documentSnapshot.data());
-        });
-        setDogsData(dogsList);
-      });
-  };
+  const [validation, setValidationSize] = useState('Grande');
+  const filter = 'size';
 
   useEffect(() => {
-    getDogs();
-  }, [size]);
-
+    getDogs({filter, validation, setDogsData});
+  }, [validation]);
 
   return (
     <MainContainerHome>
-      <Filters setSize={setSize} />
-      <FlatList
-      data={dogsData}
-      renderItem={({item}) => <DogCard {...item} />}
-      keyExtractor={item => item.name}
-    />
-    
+      <Filters setSize={setValidationSize} />
+      <PetList dogsData={dogsData} />
     </MainContainerHome>
   );
 };

@@ -14,9 +14,9 @@ import {
 } from './styledComponents';
 import {nullBckg} from '../../constants/img';
 
-const DogCard = (props) => {
+const DogCard = props => {
   const [isSelected, setSelection] = useState(false);
-  const dogsData =props
+  const dogsData = props;
   return (
     <CardContainer>
       <ImageContainer>
@@ -30,7 +30,9 @@ const DogCard = (props) => {
           <ShelterText>{dogsData ? dogsData.shelter : ''}</ShelterText>
           <HeartIcon>
             <Icon
-              onPress={() => setSelection(!isSelected)}
+              onPress={() => {
+                setSelection(!isSelected);
+              }}
               color={colors.red}
               name={isSelected ? 'favorite' : 'favorite-border'}
               size={24}

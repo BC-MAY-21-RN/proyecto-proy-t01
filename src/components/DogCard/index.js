@@ -17,15 +17,10 @@ import {nullBckg} from '../../constants/img';
 const DogCard = (props) => {
   const [isSelected, setSelection] = useState(false);
   const dogsData =props
-
   return (
     <CardContainer>
       <ImageContainer>
-        <StyledImage 
-          source={{
-            uri: dogsData ? dogsData.dogImg : nullBckg,
-          }}
-        />
+        <StyledImage source={{uri: dogsData ? dogsData.dogImg : nullBckg}} />
       </ImageContainer>
       <InfoContainer>
         <UpperView>
@@ -43,7 +38,6 @@ const DogCard = (props) => {
           </HeartIcon>
         </BottomView>
       </InfoContainer>
-   
     </CardContainer>
   );
 };

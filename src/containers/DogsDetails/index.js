@@ -34,6 +34,8 @@ const DogsDetails = props => {
     },
   } = props;
   const [dogsdata, setDogsData] = useState({});
+  const {dogImg} = dogsdata;
+
   const getDogs = dogID => {
     firestore()
       .collection('smallDogs')
@@ -43,11 +45,8 @@ const DogsDetails = props => {
         let dogsList = [];
         querySnapshot.forEach(documentSnapshot => {
           dogsList.push(documentSnapshot.data());
-          // console.log(...dogsList);
-          // console.log(dogsList[0].breed);
           setDogsData(dogsList[0]);
         });
-        // console.log(setDogsData);
       });
   };
 

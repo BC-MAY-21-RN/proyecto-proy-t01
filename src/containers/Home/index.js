@@ -3,7 +3,7 @@ import {PetList, Filters} from '../../components';
 import {MainContainerHome} from './styledComponents';
 import {getDogs} from '../../components/helpers/firebaseSignUp';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [dogsData, setDogsData] = useState();
   const [validation, setValidationSize] = useState('Grande');
   const filter = 'size';
@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <MainContainerHome>
       <Filters setSize={setValidationSize} />
-      <PetList dogsData={dogsData} />
+      <PetList dogsData={dogsData} navigation={navigation} />
     </MainContainerHome>
   );
 };

@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from './../../constants/colors';
+import React, {useState, useEffect} from 'react';
+import DogDetails from './../../components/DogDetails/index';
+import {MainContainerDogsDetails} from './styledComponent';
+import firestore from '@react-native-firebase/firestore';
 import {
   DogDetailsContainer,
   StyledImage,
@@ -22,26 +23,26 @@ import {
   OtherDetailsText,
   ShelterContactButton,
   ShelterContactButtonText,
-} from './styledComponent';
+} from './../../components/DogDetails/styledComponent';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import colors from './../../constants/colors';
 
-const DogDetails = props => {
-  const {photo} = props;
-  const [isSelected, setSelection] = useState(false);
-
+const DogsDetailsContainer = ({dogsdata}) => {
+  console.log(dogsdata);
   return (
     <DogDetailsContainer>
-      <StyledImage source={photo}>
+      <StyledImage source={null}>
         <LowerDataContainer>
-          <DogsName>Max</DogsName>
+          <DogsName>{dogsdata.name}</DogsName>
           <HeartIcon>
             <Icon
-              onPress={() => setSelection(!isSelected)}
+              // onPress={() => setSelection(!isSelected)}
               color={colors.red}
-              name={isSelected ? 'favorite' : 'favorite-border'}
+              // name={isSelected ? 'favorite' : 'favorite-border'}
               size={45}
             />
           </HeartIcon>
-          <DogsBreed>Bull Terrier</DogsBreed>
+          <DogsBreed>{dogsdata.breed} </DogsBreed>
           <GenderText>Macho</GenderText>
           <BoxesContainer>
             <DataBox>
@@ -82,4 +83,4 @@ const DogDetails = props => {
   );
 };
 
-export default DogDetails;
+export default DogsDetailsContainer;

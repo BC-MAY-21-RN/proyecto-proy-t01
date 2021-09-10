@@ -2,30 +2,6 @@ import React, {useState, useEffect} from 'react';
 import DogDetails from './../../components/DogDetails/index';
 import {MainContainerDogsDetails} from './styledComponent';
 import firestore from '@react-native-firebase/firestore';
-import {
-  DogDetailsContainer,
-  MainContainer,
-  LowerDataContainer,
-  DogsName,
-  DogsBreed,
-  HeartIcon,
-  GenderText,
-  BoxesContainer,
-  DataBox,
-  DataBoxText,
-  DataBoxTextBold,
-  StoryContainer,
-  StoryTitle,
-  StoryDetails,
-  OtherDetailsBoxContainer,
-  OtherDetailsContainer,
-  OtherDetailsTitle,
-  OtherDetailsText,
-  ShelterContactButton,
-  ShelterContactButtonText,
-} from './../../components/DogDetails/styledComponent';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from './../../constants/colors';
 
 const DogsDetails = props => {
   const {

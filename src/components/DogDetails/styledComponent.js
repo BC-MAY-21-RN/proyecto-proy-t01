@@ -45,7 +45,7 @@ export const DogsBreed = styled.Text`
   color: ${colors.dark_gray};
   font-size: 20px;
   font-family: 'Poppins-SemiBold';
-  margin: -25px 25px 20px 25px;
+  margin: -25px 25px 20px 22px;
 `;
 
 export const HeartIcon = styled.View`

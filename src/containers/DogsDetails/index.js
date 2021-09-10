@@ -4,7 +4,7 @@ import {MainContainerDogsDetails} from './styledComponent';
 import firestore from '@react-native-firebase/firestore';
 import {
   DogDetailsContainer,
-  StyledImage,
+  MainContainer,
   LowerDataContainer,
   DogsName,
   DogsBreed,

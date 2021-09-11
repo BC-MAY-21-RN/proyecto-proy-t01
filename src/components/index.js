@@ -7,6 +7,8 @@ import DogImage from './DogImage';
 import LoadingPage from './LoadingModalSignup';
 import Filters from './Filters';
 import PetList from './PetList';
+import ShelterModal from './Modal';
+import Icons from './Icons';
 export {
   Filters,
   CheckBoxField,
@@ -17,4 +19,6 @@ export {
   LoadingPage,
   DogCard,
   PetList,
+  ShelterModal,
+  Icons
 };

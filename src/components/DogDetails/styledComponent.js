@@ -15,7 +15,7 @@ export const StyledImage = styled.ImageBackground`
   align-items: flex-end;
   max-width: 100%;
   height: 100%;
-  margin-top: 0px;
+  margin-top: -50px;
 `;
 
 export const LowerDataContainer = styled.View`
@@ -127,21 +127,6 @@ export const OtherDetailsTitle = styled.Text`
 
 export const OtherDetailsText = styled.Text`
   color: ${colors.ligh_grey};
-  font-size: 15px;
-  font-family: 'Poppins-SemiBold';
-`;
-
-export const ShelterContactButton = styled.Pressable`
-  background-color: ${colors.red};
-  height: 46px;
-  padding: 12px;
-  border-radius: 10px;
-  align-self: flex-end;
-  margin-right: 20px;
-`;
-
-export const ShelterContactButtonText = styled.Text`
-  color: ${colors.white};
   font-size: 15px;
   font-family: 'Poppins-SemiBold';
 `;

@@ -20,16 +20,16 @@ import {
   OtherDetailsContainer,
   OtherDetailsTitle,
   OtherDetailsText,
-  ShelterContactButton,
-  ShelterContactButtonText,
+  ImageCont,
 } from './styledComponent';
+import {ShelterModal, Icons} from '..';
 
-const DogDetails = props => {
+const DogDetails = (props, {navigation}) => {
   const {photo} = props;
   const [isSelected, setSelection] = useState(false);
-
   return (
     <DogDetailsContainer>
+      <Icon color={colors.red} name={'arrow-back-ios'} size={45} onPress={() => navigation.navigate('Home')}/> 
       <StyledImage source={photo}>
         <LowerDataContainer>
           <DogsName>Max</DogsName>
@@ -72,9 +72,7 @@ const DogDetails = props => {
               <OtherDetailsTitle>Esterilización</OtherDetailsTitle>
               <OtherDetailsText>Sí</OtherDetailsText>
             </OtherDetailsContainer>
-            <ShelterContactButton>
-              <ShelterContactButtonText>Contáctanos</ShelterContactButtonText>
-            </ShelterContactButton>
+              <ShelterModal/>
           </OtherDetailsBoxContainer>
         </LowerDataContainer>
       </StyledImage>

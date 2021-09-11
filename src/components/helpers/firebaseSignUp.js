@@ -80,6 +80,7 @@ export const createAditionalData = (name, email) => {
       name: name || auth().currentUser.displayName,
       email: email || auth().currentUser.email,
       userImg: auth().currentUser.photoURL || profileImg,
+      dogsLiked: [],
     });
 };
 

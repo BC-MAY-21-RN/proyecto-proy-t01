@@ -14,11 +14,14 @@ import {
 } from './styledComponents';
 import {nullBckg} from '../../constants/img';
 
-const DogCard = props => {
+const DogCard = ({navigation, ...rest}) => {
   const [isSelected, setSelection] = useState(false);
-  const dogsData = props;
+  const dogsData = rest;
   return (
-    <CardContainer>
+    <CardContainer
+      onPress={() => {
+        navigation.navigate('DogsDetails', {name: dogsData.name});
+      }}>
       <ImageContainer>
         <StyledImage source={{uri: dogsData ? dogsData.dogImg : nullBckg}} />
       </ImageContainer>

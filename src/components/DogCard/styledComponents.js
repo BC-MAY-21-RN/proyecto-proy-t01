@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import colors from '../../constants/colors';
 
-export const CardContainer = styled.View`
+export const CardContainer = styled.Pressable`
   border-radius: 25px;
   flex-direction: row;
   height: 120px;

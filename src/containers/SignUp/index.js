@@ -39,7 +39,6 @@ const SignUp = ({navigation}) => {
       })
       .finally(() => {
         setLoading(false);
-        console.log(status);
       });
   };
 

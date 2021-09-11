@@ -3,19 +3,23 @@ import colors from './../../constants/colors';
 
 export const DogDetailsContainer = styled.View`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
   height: 100%;
   background-color: ${colors.light_pink};
 `;
 
-export const StyledImage = styled.ImageBackground`
+export const DogImageContainer = styled.ImageBackground`
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  max-width: 100%;
+  justify-content: flex-end;
+  width: 100%;
   height: 100%;
-  margin-top: 0px;
+`;
+
+export const DogImage = styled.ImageBackground`
+  align-self: center;
+  background-color: ${colors.light_pink};
+  width: 100%;
+  height: 45%;
 `;
 
 export const LowerDataContainer = styled.View`
@@ -41,7 +45,7 @@ export const DogsBreed = styled.Text`
   color: ${colors.dark_gray};
   font-size: 20px;
   font-family: 'Poppins-SemiBold';
-  margin: -25px 25px 20px 25px;
+  margin: -25px 25px 20px 22px;
 `;
 
 export const HeartIcon = styled.View`

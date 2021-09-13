@@ -9,9 +9,9 @@ const Stack = createStackNavigator();
 
 const listScreens = [
   {name: 'Home', component: TabNavigator},
-  {name: 'DogsDetails', component: DogsDetails},
   {name: 'LogIn', component: LogIn},
   {name: 'SignUp', component: SignUp},
+  {name: 'DogsDetails', component: DogsDetails},
   {name: 'Profile', component: TabNavigator},
   {name: 'Favorites', component: TabNavigator},
 ];

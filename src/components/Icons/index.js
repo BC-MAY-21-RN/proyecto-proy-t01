@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {IconsView} from './styledComponents';
-const Icons = function ({navigation, name, color, size}) {
+const Icons = ({navigation, name, color, size}) => {
   return (
     <IconsView>
       <Icon

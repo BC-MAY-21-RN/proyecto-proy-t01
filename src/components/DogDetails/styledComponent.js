@@ -8,7 +8,7 @@ export const DogDetailsContainer = styled.View`
   background-color: ${colors.light_pink};
 `;
 
-export const DogImageContainer = styled.ImageBackground`
+export const DogImageContainer = styled.View`
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -20,6 +20,7 @@ export const DogImage = styled.ImageBackground`
   background-color: ${colors.light_pink};
   width: 100%;
   height: 45%;
+  position: absolute;
 `;
 
 export const LowerDataContainer = styled.View`
@@ -48,9 +49,15 @@ export const DogsBreed = styled.Text`
   margin: -25px 25px 20px 22px;
 `;
 
+export const BackIcon = styled.View`
+  justify-content: flex-end;
+  margin-left: 20px;
+  margin-bottom: 280px;
+`;
+
 export const HeartIcon = styled.View`
   align-self: flex-end;
-  margin-right: 25px;
+  margin-right: 10px;
   margin-top: -35px;
 `;
 
@@ -131,6 +138,21 @@ export const OtherDetailsTitle = styled.Text`
 
 export const OtherDetailsText = styled.Text`
   color: ${colors.ligh_grey};
+  font-size: 15px;
+  font-family: 'Poppins-SemiBold';
+`;
+
+export const ShelterContactButton = styled.Pressable`
+  background-color: ${colors.red};
+  height: 46px;
+  padding: 12px;
+  border-radius: 10px;
+  align-self: flex-end;
+  margin-right: 20px;
+`;
+
+export const ShelterContactButtonText = styled.Text`
+  color: ${colors.white};
   font-size: 15px;
   font-family: 'Poppins-SemiBold';
 `;

@@ -16,25 +16,25 @@ import {
     DetailsLine,
     DetailsText
 } from './styledComponents';
-const ShelterModal = () => {
+
+const ShelterModal = ({shelter}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [shelterData, setShelterData] = useState();
   const getShelters = () => {
     firestore()
       .collection('shelter')
-      .doc('Latidos Caninos')
+      .doc(shelter)
       .get()
       .then(documentSnapshot => {
         if (documentSnapshot.exists) {
           setShelterData(documentSnapshot.data());
-          console.log(documentSnapshot.data());
         }
       });
   };
 
   useEffect(() => {
     getShelters();
-  }, []);
+  }, [shelter]);
   return (
     <>
       <Modal

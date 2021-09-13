@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import colors from './../../constants/colors';
 import {
   DogDetailsContainer,
   LowerDataContainer,
@@ -17,63 +19,68 @@ import {
   OtherDetailsContainer,
   OtherDetailsTitle,
   OtherDetailsText,
-  ShelterContactButton,
-  ShelterContactButtonText,
   DogImage,
   DogImageContainer,
-} from './../../components/DogDetails/styledComponent';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from './../../constants/colors';
+  BackIcon,
+} from './styledComponent';
+import {useNavigation} from '@react-navigation/native';
+import {Icons, ShelterModal} from '..';
 
-const DogsDetailsContainer = ({dogsdata, photo}) => {
+const DogsDetailsContainer = ({dogsdata}) => {
+  const navigation = useNavigation();
   const {dogImg} = dogsdata;
   const [isSelected, setSelection] = useState(false);
-
   return (
     <DogDetailsContainer>
       <DogImageContainer>
         <DogImage source={{uri: dogImg}} />
-      </DogImageContainer>
-      <LowerDataContainer>
-        <DogsName>{dogsdata.name}</DogsName>
-        <HeartIcon>
+        <BackIcon>
           <Icon
-            onPress={() => setSelection(!isSelected)}
+            onPress={() => navigation.navigate('Home')}
             color={colors.red}
-            name={isSelected ? 'favorite' : 'favorite-border'}
+            name={'arrow-back-ios'}
             size={45}
           />
-        </HeartIcon>
-        <DogsBreed> {dogsdata.breed} </DogsBreed>
+        </BackIcon>
+      </DogImageContainer>
+        <LowerDataContainer>
+        <DogsName>{dogsdata.name}</DogsName>
+          <HeartIcon>
+            <Icons
+              navigation={() => setSelection(!isSelected)}
+              color={colors.red}
+              name={isSelected ? 'favorite' : 'favorite-border'}
+              size={45}
+            />
+          </HeartIcon>
+          <DogsBreed> {dogsdata.breed} </DogsBreed>
         <GenderText> {dogsdata.sex} </GenderText>
-        <BoxesContainer>
-          <DataBox>
-            <DataBoxText>Peso</DataBoxText>
-            <DataBoxTextBold> {dogsdata.weight} </DataBoxTextBold>
-          </DataBox>
-          <DataBox>
-            <DataBoxText>Edad</DataBoxText>
-            <DataBoxTextBold> {dogsdata.age} </DataBoxTextBold>
-          </DataBox>
-          <DataBox>
-            <DataBoxText>Talla</DataBoxText>
-            <DataBoxTextBold>{dogsdata.size}</DataBoxTextBold>
-          </DataBox>
-        </BoxesContainer>
-        <StoryContainer>
-          <StoryTitle>Información</StoryTitle>
-          <StoryDetails>{dogsdata.information}</StoryDetails>
-        </StoryContainer>
-        <OtherDetailsBoxContainer>
+          <BoxesContainer>
+            <DataBox>
+              <DataBoxText>Peso</DataBoxText>
+              <DataBoxTextBold> {dogsdata.weight} </DataBoxTextBold>
+            </DataBox>
+            <DataBox>
+              <DataBoxText>Edad</DataBoxText>
+              <DataBoxTextBold> {dogsdata.age} </DataBoxTextBold>
+            </DataBox>
+            <DataBox>
+              <DataBoxText>Talla</DataBoxText>
+              <DataBoxTextBold>{dogsdata.size}</DataBoxTextBold>
+            </DataBox>
+          </BoxesContainer>
+          <StoryContainer>
+            <StoryTitle>Información</StoryTitle>
+            <StoryDetails>{dogsdata.information}</StoryDetails>
+          </StoryContainer>
+          <OtherDetailsBoxContainer>
           <OtherDetailsContainer>
             <OtherDetailsTitle>Vacunas</OtherDetailsTitle>
-            <OtherDetailsText>{dogsdata.vaccines}</OtherDetailsText>
+          <OtherDetailsText>{dogsdata.vaccines}</OtherDetailsText>
             <OtherDetailsTitle>Esterilización</OtherDetailsTitle>
             <OtherDetailsText>{dogsdata.sterilized}</OtherDetailsText>
           </OtherDetailsContainer>
-          <ShelterContactButton>
-            <ShelterContactButtonText>Contáctanos</ShelterContactButtonText>
-          </ShelterContactButton>
+          <ShelterModal shelter = {dogsdata.shelter}/>
         </OtherDetailsBoxContainer>
       </LowerDataContainer>
     </DogDetailsContainer>

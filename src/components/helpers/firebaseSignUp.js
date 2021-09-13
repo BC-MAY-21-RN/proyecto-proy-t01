@@ -76,11 +76,19 @@ export const createAditionalData = (name, email) => {
   firestore()
     .collection('users')
     .doc(auth().currentUser.uid)
-    .set({
-      name: name || auth().currentUser.displayName,
-      email: email || auth().currentUser.email,
-      userImg: auth().currentUser.photoURL || profileImg,
-      dogsLiked: [],
+    .get()
+    .then(response => {
+      if (!response.exists) {
+        firestore()
+          .collection('users')
+          .doc(auth().currentUser.uid)
+          .set({
+            name: name || auth().currentUser.displayName,
+            email: email || auth().currentUser.email,
+            userImg: auth().currentUser.photoURL || profileImg,
+            dogsLiked: [],
+          });
+      }
     });
 };
 
@@ -101,3 +109,12 @@ export const getDogs = ({filter, validation, setDogsData}) => {
       setDogsData(dogsList);
     });
 };
+
+export const handleUpdateProfile = (name) => {
+  firestore()
+  .collection('users')
+  .doc(auth().currentUser.uid)
+  .update({
+    name: name,
+  })
+}

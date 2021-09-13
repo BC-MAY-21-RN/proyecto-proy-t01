@@ -10,8 +10,6 @@ const DogsDetails = props => {
     },
   } = props;
   const [dogsdata, setDogsData] = useState({});
-  const {dogImg} = dogsdata;
-
   const getDogs = dogID => {
     firestore()
       .collection('smallDogs')

@@ -8,7 +8,7 @@ export const DogDetailsContainer = styled.View`
   background-color: ${colors.light_pink};
 `;
 
-export const DogImageContainer = styled.ImageBackground`
+export const DogImageContainer = styled.View`
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -20,6 +20,7 @@ export const DogImage = styled.ImageBackground`
   background-color: ${colors.light_pink};
   width: 100%;
   height: 45%;
+  position: absolute;
 `;
 
 export const LowerDataContainer = styled.View`
@@ -48,9 +49,15 @@ export const DogsBreed = styled.Text`
   margin: -25px 25px 20px 22px;
 `;
 
+export const BackIcon = styled.View`
+  justify-content: flex-end;
+  margin-left: 20px;
+  margin-bottom: 280px;
+`;
+
 export const HeartIcon = styled.View`
   align-self: flex-end;
-  margin-right: 25px;
+  margin-right: 10px;
   margin-top: -35px;
 `;
 

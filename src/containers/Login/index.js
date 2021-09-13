@@ -20,7 +20,6 @@ import {
 
 const LogIn = ({navigation}) => {
   const [authError, setAuthError] = useState(false);
-
   const handleLogIn = values => {
     const {email, password} = values;
     logInWithEmailAndPassword(email, password, navigation)

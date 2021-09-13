@@ -40,6 +40,7 @@ I18n.translations = {
     big: 'Grande',
     editProfile: 'Editar Perfil',
     exit: 'Salir',
+    closeModal: 'Cerrar'
   },
 };
 

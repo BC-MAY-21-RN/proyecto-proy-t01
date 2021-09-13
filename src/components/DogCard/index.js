@@ -20,7 +20,7 @@ const DogCard = ({navigation, ...rest}) => {
   return (
     <CardContainer
       onPress={() => {
-        navigation.navigate('DogsDetails', {name: dogsData.name});
+        navigation.navigate('DogsDetails', {name: dogsData.name, shelterName: dogsData.shelter});
       }}>
       <ImageContainer>
         <StyledImage source={{uri: dogsData ? dogsData.dogImg : nullBckg}} />

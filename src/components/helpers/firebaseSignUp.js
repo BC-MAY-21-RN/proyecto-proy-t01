@@ -76,11 +76,19 @@ export const createAditionalData = (name, email) => {
   firestore()
     .collection('users')
     .doc(auth().currentUser.uid)
-    .set({
-      name: name || auth().currentUser.displayName,
-      email: email || auth().currentUser.email,
-      userImg: auth().currentUser.photoURL || profileImg,
-      dogsLiked: [],
+    .get()
+    .then(response => {
+      if (!response.exists) {
+        firestore()
+          .collection('users')
+          .doc(auth().currentUser.uid)
+          .set({
+            name: name || auth().currentUser.displayName,
+            email: email || auth().currentUser.email,
+            userImg: auth().currentUser.photoURL || profileImg,
+            dogsLiked: [],
+          });
+      }
     });
 };
 
@@ -99,5 +107,55 @@ export const getDogs = ({filter, validation, setDogsData}) => {
         dogsList.push(documentSnapshot.data());
       });
       setDogsData(dogsList);
+    });
+};
+
+export const getAllDogs = setDogsData => {
+  firestore()
+    .collection('smallDogs')
+    .get()
+    .then(querySnapshot => {
+      let dogsList = [];
+      querySnapshot.forEach(documentSnapshot => {
+        dogsList.push(documentSnapshot.data());
+      });
+      setDogsData(dogsList);
+    });
+};
+
+export const getLikedDogs = setDogsData => {
+  firestore()
+    .collection('users')
+    .doc(auth().currentUser.uid)
+    .get()
+    .then(querySnapshot => {
+      if (querySnapshot.exists) {
+        setDogsData(querySnapshot.data().dogsLiked);
+      }
+    });
+};
+
+export const likeDog = dog => {
+  firestore()
+    .collection('users')
+    .doc(auth().currentUser.uid)
+    .get()
+    .then(async documentSnapshot => {
+      if (documentSnapshot.exists) {
+        var collectionData = documentSnapshot.data();
+        const listOfDogs = collectionData.dogsLiked;
+        let newCollection = [];
+        const dogExist = listOfDogs.find(item => item === dog);
+        if (dogExist) {
+          newCollection = listOfDogs.filter(item => item !== dog);
+        } else {
+          newCollection = [...listOfDogs, dog];
+        }
+        collectionData.dogsLiked = newCollection;
+        await firestore()
+          .collection('users')
+          .doc(auth().currentUser.uid)
+          .set(collectionData);
+      }
     });
 };

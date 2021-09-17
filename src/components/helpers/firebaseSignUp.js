@@ -110,6 +110,16 @@ export const getDogs = ({filter, validation, setDogsData}) => {
     });
 };
 
+
+export const handleUpdateProfile = (name) => {
+  firestore()
+  .collection('users')
+  .doc(auth().currentUser.uid)
+  .update({
+    name: name,
+  })
+}
+
 export const getAllDogs = setDogsData => {
   firestore()
     .collection('smallDogs')

@@ -8,11 +8,11 @@ import TabNavigator from '../Tab';
 const Stack = createStackNavigator();
 
 const listScreens = [
-  {name: 'SignUp', component: SignUp},
-  {name: 'Home', component: TabNavigator},
   {name: 'LogIn', component: LogIn},
-  {name: 'DogsDetails', component: DogsDetails},
+  {name: 'SignUp', component: SignUp},
   {name: 'Profile', component: TabNavigator},
+  {name: 'Home', component: TabNavigator},
+  {name: 'DogsDetails', component: DogsDetails},
   {name: 'Favorites', component: TabNavigator},
 ];
 

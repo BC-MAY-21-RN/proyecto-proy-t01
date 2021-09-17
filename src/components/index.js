@@ -9,6 +9,7 @@ import Filters from './Filters';
 import PetList from './PetList';
 import ShelterModal from './Modal';
 import Icons from './Icons';
+import ModalUser from './ModalUser';
 export {
   Filters,
   CheckBoxField,
@@ -20,5 +21,6 @@ export {
   DogCard,
   PetList,
   ShelterModal,
-  Icons
+  Icons,
+  ModalUser
 };

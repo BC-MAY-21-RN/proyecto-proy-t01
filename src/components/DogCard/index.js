@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../constants/colors';
 import {
@@ -13,14 +13,18 @@ import {
   UpperView,
 } from './styledComponents';
 import {nullBckg} from '../../constants/img';
+import {likeDog} from '../helpers/firebaseSignUp';
 
 const DogCard = ({navigation, ...rest}) => {
-  const [isSelected, setSelection] = useState(false);
   const dogsData = rest;
+
   return (
     <CardContainer
       onPress={() => {
-        navigation.navigate('DogsDetails', {name: dogsData.name, shelterName: dogsData.shelter});
+        navigation.navigate('DogsDetails', {
+          name: dogsData.name,
+          shelterName: dogsData.shelter,
+        });
       }}>
       <ImageContainer>
         <StyledImage source={{uri: dogsData ? dogsData.dogImg : nullBckg}} />
@@ -34,10 +38,10 @@ const DogCard = ({navigation, ...rest}) => {
           <HeartIcon>
             <Icon
               onPress={() => {
-                setSelection(!isSelected);
+                likeDog(dogsData.name);
               }}
               color={colors.red}
-              name={isSelected ? 'favorite' : 'favorite-border'}
+              name={dogsData.liked ? 'favorite' : 'favorite-border'}
               size={24}
             />
           </HeartIcon>

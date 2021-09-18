@@ -8,7 +8,7 @@ import {
   SignedUpIcon,
 } from './styledComponent';
 
-const LoadingPage = ({status, navigation, setStatus}) => {
+export const LoadingPage = ({status, navigation, setStatus}) => {
   if (status === 'loading') {
     return (
       status === 'loading' && (
@@ -37,5 +37,3 @@ const LoadingPage = ({status, navigation, setStatus}) => {
     );
   }
 };
-
-export default LoadingPage;

@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import colors from '../../library/constants/colors';
+import { colors } from '../../library/constants';
 
 export const DogDetailsContainer = styled.View`
   display: flex;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from '../../library/constants/colors';
+import { colors } from '../../library/constants';
 import {
   DogDetailsContainer,
   LowerDataContainer,
@@ -88,4 +88,3 @@ export const DogDetails = ({dogsdata}) => {
     </DogDetailsContainer>
   );
 };
-

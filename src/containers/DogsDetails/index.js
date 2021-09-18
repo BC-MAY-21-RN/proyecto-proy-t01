@@ -3,7 +3,7 @@ import DogDetails from './../../components/DogDetails/index';
 import {MainContainerDogsDetails} from './styledComponent';
 import firestore from '@react-native-firebase/firestore';
 
-const DogsDetails = props => {
+export const DogsDetails = props => {
   const {
     route: {
       params: {name},
@@ -35,4 +35,3 @@ const DogsDetails = props => {
   );
 };
 
-export default DogsDetails;

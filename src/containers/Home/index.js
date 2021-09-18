@@ -3,7 +3,7 @@ import {PetList, Filters} from '../../components';
 import {MainContainerHome} from './styledComponents';
 import {getDogs, getLikedDogs} from '../../components/helpers/firebaseSignUp';
 
-const Home = ({navigation}) => {
+export const Home = ({navigation}) => {
   const [dogsData, setDogsData] = useState();
   const [allDogs, setAllDogs] = useState();
   const [validation, setValidationSize] = useState('Grande');
@@ -41,5 +41,3 @@ const Home = ({navigation}) => {
     </MainContainerHome>
   );
 };
-
-export default Home;

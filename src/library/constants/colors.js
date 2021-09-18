@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
   green: '#17A1A2',
   light_green: '#38AEAF',
   orange: '#FC8417',
@@ -21,5 +21,3 @@ const colors = {
   pale_gray: '#e7e9eb',
   background_opacity: 'rgba(0,0,0,0.5)',
 };
-
-export default colors;

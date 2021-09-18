@@ -2,7 +2,7 @@ import React from 'react';
 import {DogCard} from '../../components';
 import {FlatList} from 'react-native';
 
-const PetList = ({dogsData, navigation}) => {
+export const PetList = ({dogsData, navigation}) => {
   return (
     <FlatList
       data={dogsData}
@@ -11,5 +11,3 @@ const PetList = ({dogsData, navigation}) => {
     />
   );
 };
-
-export default PetList;

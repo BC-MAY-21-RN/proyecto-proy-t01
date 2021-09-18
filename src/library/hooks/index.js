@@ -1,0 +1,1 @@
+export { useGoogleConfiguration } from "./firebase";

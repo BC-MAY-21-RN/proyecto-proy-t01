@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from '../../library/constants/colors';
+import { colors } from '../../library/constants';
 import {
   BottomView,
   CardContainer,

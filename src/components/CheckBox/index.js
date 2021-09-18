@@ -1,6 +1,6 @@
 import React from 'react';
 import CheckBox from '@react-native-community/checkbox';
-import colors from '../../library/constants/colors';
+import { colors } from '../../library/constants';
 import {
   CheckBoxContainer,
   TextCustom,

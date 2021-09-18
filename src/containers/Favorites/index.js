@@ -6,7 +6,7 @@ import {
   getAllDogs,
 } from '../../components/helpers/firebaseSignUp';
 
-const Favorites = ({navigation}) => {
+export const Favorites = ({navigation}) => {
   const [dogsData, setDogsData] = useState();
   const [allDogs, setAllDogs] = useState();
 
@@ -40,5 +40,3 @@ const Favorites = ({navigation}) => {
     </MainContainerFav>
   );
 };
-
-export default Favorites;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { colors } from '../../library/constants';
+import {colors, nullBckg} from '../../library/constants';
 import {
   BottomView,
   CardContainer,
@@ -12,12 +12,12 @@ import {
   StyledImage,
   UpperView,
 } from './styledComponents';
-import {nullBckg} from '../../library/constants/img';
-import {likeDog} from '../helpers/firebaseSignUp';
+
+import {firebaseMethods} from '../../library/methods';
 
 export const DogCard = ({navigation, ...rest}) => {
   const dogsData = rest;
-
+  const {likeDog} = firebaseMethods;
   return (
     <CardContainer
       onPress={() => {

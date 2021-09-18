@@ -16,6 +16,7 @@ import {
 } from './styledComponents';
 import {logInValidationSchema} from '../../library/constants';
 import {firebaseMethods} from '../../library/methods';
+import { useAuthChecker } from '../../library/hooks';
 
 export const LogIn = ({navigation}) => {
   const {onGoogleButtonPress, logInWithEmailAndPassword} = firebaseMethods;
@@ -26,6 +27,8 @@ export const LogIn = ({navigation}) => {
       .then(() => setAuthError(false))
       .catch(() => setAuthError(true));
   };
+
+  useAuthChecker(navigation)
   return (
     <MainContainerLog>
       <TopContainerLog>

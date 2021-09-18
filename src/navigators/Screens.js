@@ -3,18 +3,18 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import { TabNavigator } from '.';
-import { LogIn } from '../containers';
+import { LogIn ,SignUp,DogsDetails, } from '../containers';
 
 
 const Stack = createStackNavigator();
 
 const listScreens = [
   {name: 'LogIn', component: LogIn},
-  //{name: 'SignUp', component: SignUp},
-  //{name: 'Profile', component: TabNavigator},
+  {name: 'SignUp', component: SignUp},
+  {name: 'Profile', component: TabNavigator},
   {name: 'Home', component: TabNavigator},
-  //{name: 'DogsDetails', component: DogsDetails},
-  //{name: 'Favorites', component: TabNavigator},
+  {name: 'DogsDetails', component: DogsDetails},
+  {name: 'Favorites', component: TabNavigator},
 ];
 
 const screens = listScreens.map(({name, component}) => (

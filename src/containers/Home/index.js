@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {PetList, Filters} from '../../components';
+import {Filters, DogCard} from '../../components';
 import {MainContainerHome} from './styledComponents';
-import {getDogs, getLikedDogs} from '../../components/helpers/firebaseSignUp';
-
+import {firebaseMethods} from '../../library/methods';
+import {FlatList} from 'react-native';
 export const Home = ({navigation}) => {
+  const {getDogs, getLikedDogs} = firebaseMethods;
   const [dogsData, setDogsData] = useState();
   const [allDogs, setAllDogs] = useState();
   const [validation, setValidationSize] = useState('Grande');
@@ -33,11 +34,15 @@ export const Home = ({navigation}) => {
       setAllDogs(newList);
     }
   }, []);
-
+console.log("ALL DOGS",allDogs);
   return (
     <MainContainerHome>
       <Filters setSize={setValidationSize} />
-      <PetList dogsData={allDogs} navigation={navigation} />
+      <FlatList
+        data={allDogs}
+        renderItem={({item}) => <DogCard {...item} navigation={navigation} />}
+        keyExtractor={item => item.name}
+      />
     </MainContainerHome>
   );
 };

@@ -2,9 +2,8 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { colors } from '../library/constants';
-import { Home } from '../containers';
-
+import {colors} from '../library/constants';
+import {Home, Favorites, Profile} from '../containers';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +14,6 @@ const listItems = [
     component: Home,
     icon: 'home',
   },
- /*
   {
     key: 2,
     name: 'Favoritos',
@@ -28,7 +26,6 @@ const listItems = [
     component: Profile,
     icon: 'account-circle',
   },
-  */
 ];
 
 const tabList = listItems.map(item => (

@@ -56,25 +56,7 @@ export const firebaseMethods = {
         });
     });
   },
-  createAditionalData: (name, email) => {
-    firestore()
-      .collection('users')
-      .doc(auth().currentUser.uid)
-      .get()
-      .then(response => {
-        if (!response.exists) {
-          firestore()
-            .collection('users')
-            .doc(auth().currentUser.uid)
-            .set({
-              name: name || auth().currentUser.displayName,
-              email: email || auth().currentUser.email,
-              userImg: auth().currentUser.photoURL || profileImg,
-              dogsLiked: [],
-            });
-        }
-      });
-  },
+
   LogOut: navigation => {
     auth().signOut().then(navigation.navigate('LogIn'));
   },
@@ -143,4 +125,24 @@ export const firebaseMethods = {
         }
       });
   },
+};
+
+const createAditionalData = (name, email) => {
+  firestore()
+    .collection('users')
+    .doc(auth().currentUser.uid)
+    .get()
+    .then(response => {
+      if (!response.exists) {
+        firestore()
+          .collection('users')
+          .doc(auth().currentUser.uid)
+          .set({
+            name: name || auth().currentUser.displayName,
+            email: email || auth().currentUser.email,
+            userImg: auth().currentUser.photoURL || profileImg,
+            dogsLiked: [],
+          });
+      }
+    });
 };

@@ -1,1 +1,1 @@
-export { useGoogleConfiguration } from "./firebase";
+export {useGoogleConfiguration, useAuthChecker} from './firebase';

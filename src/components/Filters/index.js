@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';
-import sectionsList from '../../library/constants/sections';
+import { sectionsList } from '../../library/constants';
+
 import {SectionItem, TextSection} from './styledComponents';
 
 export const Filters = ({setSize}) => {

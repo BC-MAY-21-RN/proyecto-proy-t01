@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {Modal} from "react-native";
 import {CustomButton, TextInputField, LoadingPage} from '..';
 import {CloseButton, ShelterContactButtonText} from '../Modal/styledComponents';
-import {span} from '../../i18n/es';
+import {span} from '../../library/i18n/es';
 import {Formik} from 'formik';
 import {EditProfileContainer, ButtonContainer, EditImage} from './styledComponent';
-import {profileValidationSchema} from '../../constants/schemas/profileValidationSchema';
+import {profileValidationSchema} from '../../library/constants/schemas/profileValidationSchema';
 import {handleUpdateProfile} from '../../components/helpers/firebaseSignUp';
 const ModalUser = () => {
   const [modalVisible, setModalVisible] = useState(false);

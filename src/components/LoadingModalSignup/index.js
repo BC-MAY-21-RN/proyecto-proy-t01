@@ -1,5 +1,5 @@
 import React from 'react';
-import {span} from './../../i18n/es';
+import {span} from '../../library/i18n/es';
 import {
   ModalContainer,
   ModalBackground,

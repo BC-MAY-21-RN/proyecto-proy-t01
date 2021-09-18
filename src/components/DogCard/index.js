@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from '../../constants/colors';
+import colors from '../../library/constants/colors';
 import {
   BottomView,
   CardContainer,
@@ -12,10 +12,10 @@ import {
   StyledImage,
   UpperView,
 } from './styledComponents';
-import {nullBckg} from '../../constants/img';
+import {nullBckg} from '../../library/constants/img';
 import {likeDog} from '../helpers/firebaseSignUp';
 
-const DogCard = ({navigation, ...rest}) => {
+export const DogCard = ({navigation, ...rest}) => {
   const dogsData = rest;
 
   return (
@@ -50,5 +50,3 @@ const DogCard = ({navigation, ...rest}) => {
     </CardContainer>
   );
 };
-
-export default DogCard;

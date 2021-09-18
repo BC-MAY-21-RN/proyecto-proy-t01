@@ -3,7 +3,7 @@ import firestore from '@react-native-firebase/firestore';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {useEffect} from 'react';
 import {WEB_CLIENT_ID} from '@env';
-import {profileImg} from '../../library/constants/img';
+import {profileImg} from '../constants/img';
 
 export const useGoogleConfiguration = () => {
   useEffect(() => {

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import colors from '../../constants/colors';
+import colors from '../../library/constants/colors';
 import firestore from '@react-native-firebase/firestore';
 import {Modal} from "react-native";
-import {nullBckg} from '../../constants/img';
+import {nullBckg} from '../../library/constants/img';
 import {Icons} from '..';
 import { 
     ShelterContactButton, 

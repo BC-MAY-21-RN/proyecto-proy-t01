@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import colors from '../../constants/colors';
+import colors from '../../library/constants/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const InputContainer = styled.View`

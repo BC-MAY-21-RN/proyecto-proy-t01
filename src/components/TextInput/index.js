@@ -5,7 +5,7 @@ import {
   InputIcon,
   AlertText,
 } from './styledComponent';
-import color from '../../constants/colors';
+import color from '../../library/constants/colors';
 import {Text} from 'react-native';
 
 const TextInputField = props => {

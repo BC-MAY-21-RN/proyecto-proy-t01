@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from './../../constants/colors';
+import colors from '../../library/constants/colors';
 import {
   DogDetailsContainer,
   LowerDataContainer,
@@ -27,7 +27,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Icons, ShelterModal} from '..';
 import {likeDog} from '../helpers/firebaseSignUp';
 
-const DogsDetailsContainer = ({dogsdata}) => {
+export const DogDetails = ({dogsdata}) => {
   const navigation = useNavigation();
   const dogsData = dogsdata;
   return (
@@ -89,4 +89,3 @@ const DogsDetailsContainer = ({dogsdata}) => {
   );
 };
 
-export default DogsDetailsContainer;

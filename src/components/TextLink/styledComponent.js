@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import colors from '../../constants/colors';
+import colors from '../../library/constants/colors';
 
 export const TextLinkCustom = styled.Text`
   color: ${colors.red};

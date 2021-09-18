@@ -13,8 +13,9 @@ const listScreens = [
   {name: 'LogIn', component: LogIn},
   {name: 'Home', component: TabNavigator},
   {name: 'SignUp', component: SignUp},
-  {name: 'DogsDetails', component: DogsDetails},
   {name: 'Profile', component: TabNavigator},
+  {name: 'Home', component: TabNavigator},
+  {name: 'DogsDetails', component: DogsDetails},
   {name: 'Favorites', component: TabNavigator},
 ];
 

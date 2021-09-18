@@ -1,8 +1,9 @@
 import auth from '@react-native-firebase/auth';
 import React, {useState, useEffect} from 'react';
+import {RefreshControl, ScrollView} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import {span} from '../../i18n/es';
-import {CustomButton} from '../../components';
+import {ModalUser} from '../../components';
 import {LogOut} from '../../components/helpers/firebaseSignUp';
 import {defaultPhoto} from '../../constants/img';
 import {
@@ -38,27 +39,27 @@ const Profile = ({navigation}) => {
 
   return (
     <MainContainerProfile>
-      <ProfileContainer>
-        <LogOutContainer>
-          <ProfileIcon name="logout" />
-          <LogOutText onPress={() => LogOut(navigation)}>
-            {span('exit')}
-          </LogOutText>
-        </LogOutContainer>
-        <ProfileImage
-          source={{
-            uri: userData ? userData.userImg : defaultPhoto,
-          }}
-        />
-        <InputContainerProfile>
-          <UserName>{userData ? userData.name : ''}</UserName>
-          <UserEmail>{userData ? userData.email : ''}</UserEmail>
-          <ButtonContainerProfile>
-            <CustomButton text={span('editProfile')} />
-          </ButtonContainerProfile>
-        </InputContainerProfile>
-      </ProfileContainer>
-    </MainContainerProfile>
+        <ProfileContainer>
+            <LogOutContainer>
+              <ProfileIcon name="logout" />
+              <LogOutText onPress={() => LogOut(navigation)}>
+                {span('exit')}
+              </LogOutText>
+            </LogOutContainer>
+            <ProfileImage
+              source={{
+                uri: userData ? userData.userImg : defaultPhoto,
+              }}
+              />
+            <InputContainerProfile>
+              <UserName>{userData ? userData.name : ''}</UserName>
+              <UserEmail>{userData ? userData.email : ''}</UserEmail>
+              <ButtonContainerProfile>
+                <ModalUser />
+              </ButtonContainerProfile>
+            </InputContainerProfile>
+        </ProfileContainer>
+      </MainContainerProfile>
   );
 };
 

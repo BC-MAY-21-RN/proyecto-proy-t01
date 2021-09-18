@@ -12,6 +12,7 @@ export const MainContainerProfile = styled(MainContainer)`
   flex: 1;
   align-items: center;
   justify-content: center;
+  position: relative;
 `;
 
 export const ProfileContainer = styled.View`

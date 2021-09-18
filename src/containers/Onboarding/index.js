@@ -12,7 +12,6 @@ import {Title} from 'react-native-paper';
 
 const OnboardingScreen = ({navigation}) => {
   return (
-    // <MainContainer>
     <Onboarding
       SkipButtonComponent={SkipStyled}
       NextButtonComponent={NextStyled}
@@ -54,7 +53,6 @@ const OnboardingScreen = ({navigation}) => {
         },
       ]}
     />
-    // </MainContainer>
   );
 };
 

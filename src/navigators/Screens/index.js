@@ -25,7 +25,7 @@ const screens = listScreens.map(({name, component}) => (
 const ScreenNavigator = () => {
   const [isFirstLaunch, setIsFirstLaunch] = useState(false);
 
-  // If state is FirstLaunch will open onboarding screen, otherwise sends user to Login
+  /* If state is FirstLaunch will open onboarding screen, otherwise sends user to Login */
   useEffect(() => {
     AsyncStorage.getItem('alreadyLaunched').then(value => {
       if (value == null) {

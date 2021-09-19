@@ -10,9 +10,9 @@ export const HomeComponent = ({
   getDogsbySize,
   getLikedDogs,
   likeDog,
+  validation,
+  setValidationSize,
 }) => {
-  const [validation, setValidationSize] = useState('Grande');
-
   useEffect(() => {
     getDogsbySize(validation);
   }, [validation]);

@@ -121,6 +121,7 @@ export const firebaseMethods = {
             newCollection = [...listOfDogs, dog];
           }
           collectionData.dogsLiked = newCollection;
+          
           await firestore()
             .collection('users')
             .doc(auth().currentUser.uid)

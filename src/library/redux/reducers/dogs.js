@@ -1,17 +1,13 @@
+import {getNewState} from '../../methods';
+import {GET_ALL_DOGS, GET_DOGS_BY_SIZE, GET_LIKED_DOGS,DOG_SIZE} from '../actionTypes';
 
-import { getNewState } from '../../methods';
-import {
-  GET_ALL_DOGS,
-  GET_DOGS_BY_SIZE,
-  GET_LIKED_DOGS,
-  LIKE_DOG,
-} from '../actionTypes';
 
 const initialState = {
   allDogs: [],
   dogsFiltered: [],
   favouriteDogs: [],
   loading: false,
+  validation:"Grande"
 };
 
 export default (state = initialState, action) => {
@@ -31,7 +27,7 @@ export default (state = initialState, action) => {
     case GET_ALL_DOGS.success():
       return getNewState(state, {
         ...state,
-        allDogs:response,
+        allDogs: response,
         loading: false,
       });
     case GET_DOGS_BY_SIZE.request():
@@ -48,7 +44,7 @@ export default (state = initialState, action) => {
     case GET_DOGS_BY_SIZE.success():
       return getNewState(state, {
         ...state,
-        dogsFiltered:response,
+        dogsFiltered: response,
         loading: false,
       });
     case GET_LIKED_DOGS.request():
@@ -65,7 +61,18 @@ export default (state = initialState, action) => {
     case GET_LIKED_DOGS.success():
       return getNewState(state, {
         ...state,
-        favouriteDogs:response,
+        favouriteDogs: response,
+        loading: false,
+      });
+    case DOG_SIZE.request():
+      return getNewState(state, {
+        ...state,
+        loading: true,
+      });
+    case DOG_SIZE.success():
+      return getNewState(state, {
+        ...state,
+        validation: response,
         loading: false,
       });
     default:

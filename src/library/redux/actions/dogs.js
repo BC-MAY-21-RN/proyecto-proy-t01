@@ -1,5 +1,6 @@
 import {firebaseMethods} from '../../methods/firebase.js';
 import {
+  DOG_SIZE,
   GET_ALL_DOGS,
   GET_DOGS_BY_SIZE,
   GET_LIKED_DOGS,
@@ -48,7 +49,7 @@ export const getLikedDogs = () => async dispatch => {
   }
 };
 
-export const likeDog = (name) => async dispatch => {
+export const likeDog = name => async dispatch => {
   const action = LIKE_DOG;
   dispatch(request(action));
   try {
@@ -60,4 +61,11 @@ export const likeDog = (name) => async dispatch => {
   } catch (error) {
     return dispatch(error(action));
   }
+};
+export const setValidationSize = size => async dispatch => {
+  console.log("size",size);
+  const action = DOG_SIZE;
+  dispatch(request(action));
+  return dispatch(success(action, size));
+  
 };

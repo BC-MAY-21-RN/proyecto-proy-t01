@@ -4,11 +4,19 @@ import {
   getDogsbySize,
   getLikedDogs,
   likeDog,
+  setValidationSize,
 } from '../../library/redux/actions';
 import {HomeComponent} from './component';
 
 export const Home = connect(
-  ({dogs: {dogsFiltered, favouriteDogs}}) => ({dogsFiltered, favouriteDogs}),
+  ({dogs: {dogsFiltered, favouriteDogs, validation}}) => ({
+    validation,
+    dogsFiltered,
+    favouriteDogs,
+  }),
   dispatch =>
-    bindActionCreators({getDogsbySize, getLikedDogs, likeDog}, dispatch),
+    bindActionCreators(
+      {getDogsbySize, getLikedDogs, likeDog, setValidationSize},
+      dispatch,
+    ),
 )(HomeComponent);

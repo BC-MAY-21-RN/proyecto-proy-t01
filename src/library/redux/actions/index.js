@@ -1,1 +1,1 @@
-export { getAllDogs, getDogsbySize, getLikedDogs, likeDog } from "./dogs";
+export { getAllDogs, getDogsbySize, getLikedDogs, likeDog,setValidationSize } from "./dogs";

@@ -1,42 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import {PetList} from '../../components';
-import {MainContainerFav} from './styledComponents';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {
-  getLikedDogs,
   getAllDogs,
-} from '../../components/helpers/firebaseSignUp';
+  getLikedDogs,
+  getDogsbySize,
+  likeDog,
+} from '../../library/redux/actions';
+import {FavoritesComponent} from './component';
 
-export const Favorites = ({navigation}) => {
-  const [dogsData, setDogsData] = useState();
-  const [allDogs, setAllDogs] = useState();
-
-  const [finalList, setFinalList] = useState();
-
-  useEffect(() => {
-    getAllDogs(setAllDogs);
-  }, []);
-
-  useEffect(() => {
-    getLikedDogs(setDogsData);
-  }, []);
-
-  useEffect(() => {
-    if (dogsData && allDogs) {
-      let localList = [];
-      dogsData.map(item => {
-        let itemFind = allDogs.find(element => element.name === item);
-
-        if (itemFind) {
-          localList.push(itemFind);
-        }
-        setFinalList(localList);
-      });
-    }
-  }, [dogsData, allDogs]);
-
-  return (
-    <MainContainerFav>
-      <PetList dogsData={finalList} navigation={navigation} />
-    </MainContainerFav>
-  );
-};
+export const Favorites = connect(
+  ({dogs: {allDogs, favouriteDogs, validation}}) => ({
+    validation,
+    allDogs,
+    favouriteDogs,
+  }),
+  dispatch => bindActionCreators({getAllDogs, getLikedDogs, likeDog,getDogsbySize}, dispatch),
+)(FavoritesComponent);

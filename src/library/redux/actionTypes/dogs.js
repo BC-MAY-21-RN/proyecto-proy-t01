@@ -22,3 +22,9 @@ export const LIKE_DOG ={
     error:()=> 'LIKE_DOG_ERROR'
 }
 
+export const DOG_SIZE ={
+    request:()=> 'DOG_SIZE_REQUEST',
+    success:()=> 'DOG_SIZE_SUCCESS',
+    error:()=> 'DOG_SIZE_ERROR'
+}
+

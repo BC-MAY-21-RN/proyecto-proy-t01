@@ -1,38 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import DogDetails from './../../components/DogDetails/index';
-import {MainContainerDogsDetails} from './styledComponent';
-import firestore from '@react-native-firebase/firestore';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {
+  getDogsbySize,
+  getLikedDogs,
+  likeDog,
+  setValidationSize,
+} from '../../library/redux/actions';
+import {DogsDetailsComponent} from './component';
 
-const DogsDetails = props => {
-  const {
-    route: {
-      params: {name},
-    },
-  } = props;
-  const [dogsdata, setDogsData] = useState({});
-  const getDogs = dogID => {
-    firestore()
-      .collection('smallDogs')
-      .where('name', '==', `${dogID}`)
-      .get()
-      .then(querySnapshot => {
-        let dogsList = [];
-        querySnapshot.forEach(documentSnapshot => {
-          dogsList.push(documentSnapshot.data());
-          setDogsData(dogsList[0]);
-        });
-      });
-  };
-
-  useEffect(() => {
-    getDogs(name);
-  }, []);
-
-  return (
-    <MainContainerDogsDetails>
-      <DogDetails dogsdata={dogsdata} />
-    </MainContainerDogsDetails>
-  );
-};
-
-export default DogsDetails;
+export const DogsDetails = connect(
+  ({dogs: {favouriteDogs, validation}}) => ({
+    validation,
+    favouriteDogs,
+  }),
+  dispatch =>
+    bindActionCreators(
+      {getDogsbySize, getLikedDogs, likeDog, setValidationSize},
+      dispatch,
+    ),
+)(DogsDetailsComponent);

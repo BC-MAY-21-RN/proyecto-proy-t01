@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import {Formik} from 'formik';
-import {span} from '../../i18n/es';
-import {signUpValidationSchema} from '../../constants/schemas/signUpValidationSchema';
-import {signInWithNameEmailAndPassword} from '../../components/helpers/firebaseSignUp';
+import {span} from '../../library/i18n/es';
 import {
   MainContainer,
   InputContainer,
@@ -18,9 +16,11 @@ import {
   DogImage,
   LoadingPage,
 } from '../../components';
-import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
+import {signUpValidationSchema} from '../../library/constants';
+import {firebaseMethods} from '../../library/methods';
 
-const SignUp = ({navigation}) => {
+export const SignUp = ({navigation}) => {
+  const {onGoogleButtonPress, signInWithNameEmailAndPassword} = firebaseMethods;
   const [loading, setLoading] = useState(false);
   const [emailInUseError, setEmailInUseError] = useState(false);
   const [status, setStatus] = useState(false);
@@ -116,5 +116,3 @@ const SignUp = ({navigation}) => {
     </MainContainer>
   );
 };
-
-export default SignUp;

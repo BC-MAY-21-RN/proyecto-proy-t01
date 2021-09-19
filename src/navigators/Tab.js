@@ -1,10 +1,9 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {Home, Profile, Favorites} from '../../containers/';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from '../../constants/colors';
-
+import {colors} from '../library/constants';
+import { Favorites, Home, Profile } from '../containers';
 const Tab = createBottomTabNavigator();
 
 const listItems = [
@@ -49,8 +48,6 @@ const tabList = listItems.map(item => (
   />
 ));
 
-const TabNavigator = () => (
+export const TabNavigator = () => (
   <Tab.Navigator screenOptions={{header: () => null}}>{tabList}</Tab.Navigator>
 );
-
-export default TabNavigator;

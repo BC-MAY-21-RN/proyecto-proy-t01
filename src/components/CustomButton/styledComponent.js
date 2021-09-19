@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
-import colors from '../../constants/colors';
+import { colors } from '../../library/constants';
+
 
 export const StyledButton = styled.Pressable`
   background-color: ${colors.red};

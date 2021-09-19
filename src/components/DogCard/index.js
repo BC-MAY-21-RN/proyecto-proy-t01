@@ -19,8 +19,7 @@ export const DogCard = ({navigation, likeDog, ...rest}) => {
     <CardContainer
       onPress={() => {
         navigation.navigate('DogsDetails', {
-          name: dogsData.name,
-          shelterName: dogsData.shelter,
+          dog: {...dogsData},
         });
       }}>
       <ImageContainer>

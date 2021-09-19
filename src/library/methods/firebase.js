@@ -60,26 +60,14 @@ export const firebaseMethods = {
   LogOut: navigation => {
     auth().signOut().then(navigation.navigate('LogIn'));
   },
-  getDogs: ({filter, validation, setDogsData}) => {
-    firestore()
-      .collection('smallDogs')
-      .where(filter, '==', validation)
-      .get()
-      .then(querySnapshot => {
-        let dogsList = [];
-        querySnapshot.forEach(documentSnapshot => {
-          dogsList.push(documentSnapshot.data());
-        });
-        setDogsData(dogsList);
-      });
-  },
+
   handleUpdateProfile: name => {
     firestore().collection('users').doc(auth().currentUser.uid).update({
       name: name,
     });
   },
-  getAllDogs: setDogsData => {
-    firestore()
+  getAllDogs: () => {
+    return firestore()
       .collection('smallDogs')
       .get()
       .then(querySnapshot => {
@@ -87,22 +75,37 @@ export const firebaseMethods = {
         querySnapshot.forEach(documentSnapshot => {
           dogsList.push(documentSnapshot.data());
         });
-        setDogsData(dogsList);
+        return dogsList;
       });
   },
-  getLikedDogs: setDogsData => {
-    firestore()
+  getDogsbySize: size => {
+    return firestore()
+      .collection('smallDogs')
+      .where('size', '==', size)
+      .get()
+      .then(querySnapshot => {
+        let dogsList = [];
+        querySnapshot.forEach(documentSnapshot => {
+          dogsList.push(documentSnapshot.data());
+        });
+        return dogsList;
+      });
+  },
+
+  getLikedDogs: () => {
+    return firestore()
       .collection('users')
       .doc(auth().currentUser.uid)
       .get()
       .then(querySnapshot => {
         if (querySnapshot.exists) {
-          setDogsData(querySnapshot.data().dogsLiked);
+          return querySnapshot.data().dogsLiked;
         }
+        return [];
       });
   },
   likeDog: dog => {
-    firestore()
+    return firestore()
       .collection('users')
       .doc(auth().currentUser.uid)
       .get()
@@ -122,6 +125,8 @@ export const firebaseMethods = {
             .collection('users')
             .doc(auth().currentUser.uid)
             .set(collectionData);
+
+          return true
         }
       });
   },

@@ -3,8 +3,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {colors} from '../library/constants';
-import {Home, Favorites, Profile} from '../containers';
-
+import { Favorites, Home, Profile } from '../containers';
 const Tab = createBottomTabNavigator();
 
 const listItems = [

@@ -12,12 +12,9 @@ import {
   StyledImage,
   UpperView,
 } from './styledComponents';
-
-import {firebaseMethods} from '../../library/methods';
-
-export const DogCard = ({navigation, ...rest}) => {
+export const DogCard = ({navigation, likeDog, ...rest}) => {
   const dogsData = rest;
-  const {likeDog} = firebaseMethods;
+
   return (
     <CardContainer
       onPress={() => {
@@ -37,9 +34,7 @@ export const DogCard = ({navigation, ...rest}) => {
           <ShelterText>{dogsData ? dogsData.shelter : ''}</ShelterText>
           <HeartIcon>
             <Icon
-              onPress={() => {
-                likeDog(dogsData.name);
-              }}
+              onPress={() => likeDog(dogsData.name)}
               color={colors.red}
               name={dogsData.liked ? 'favorite' : 'favorite-border'}
               size={24}

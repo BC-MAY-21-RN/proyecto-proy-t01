@@ -1,6 +1,7 @@
 
 import { getNewState } from '../../methods';
-import {GET_PROFILE, UPDATE_PROFILE} from '../actionTypes';
+import { GET_PROFILE } from '../actionTypes/user';
+
 
 const initialState = {
   userData: {},
@@ -10,19 +11,19 @@ const initialState = {
 export default (state = initialState, action) => {
   const {payload: response} = action;
   switch (action.type) {
-    case DISPLAY_FLIGHTS.request():
+    case GET_PROFILE.request():
       return getNewState(state, {
         ...state,
         loading: true,
       });
-    case DISPLAY_FLIGHTS.error():
+    case GET_PROFILE.error():
       return getNewState(state, {
-        flights: [],
+        userData: {},
         loading: false,
       });
-    case DISPLAY_FLIGHTS.success():
+    case GET_PROFILE.success():
       return getNewState(state, {
-        flights,
+        userData:response,
         loading: false,
       });
 

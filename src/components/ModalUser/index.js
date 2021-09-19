@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import {Modal} from 'react-native';
-import {CustomButton, TextInputField, LoadingPage} from '..';
+import {CustomButton, TextInputField} from '..';
 import {CloseButton, ShelterContactButtonText} from '../Modal/styledComponents';
 import {span} from '../../library/i18n/es';
 import {Formik} from 'formik';
 import {EditProfileContainer, ButtonContainer} from './styledComponent';
-
 import { profileValidationSchema } from '../../library/constants';
-import { firebaseMethods } from '../../library/methods';
-export const ModalUser = () => {
-  const {handleUpdateProfile}=firebaseMethods
+
+export const ModalUser = ({handleUpdateProfile}) => {
+
   const [modalVisible, setModalVisible] = useState(false);
   const handleUpdate = values => {
     const {name} = values;

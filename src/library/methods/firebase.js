@@ -61,11 +61,7 @@ export const firebaseMethods = {
     auth().signOut().then(navigation.navigate('LogIn'));
   },
 
-  handleUpdateProfile: name => {
-    firestore().collection('users').doc(auth().currentUser.uid).update({
-      name: name,
-    });
-  },
+
   getAllDogs: () => {
     return firestore()
       .collection('smallDogs')
@@ -121,15 +117,31 @@ export const firebaseMethods = {
             newCollection = [...listOfDogs, dog];
           }
           collectionData.dogsLiked = newCollection;
-          
+
           await firestore()
             .collection('users')
             .doc(auth().currentUser.uid)
             .set(collectionData);
 
-          return true
+          return true;
         }
       });
+  },
+  getProfile: () => {
+    return firestore()
+      .collection('users')
+      .doc(auth().currentUser.uid)
+      .get()
+      .then(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          return documentSnapshot.data();
+        }
+      });
+  },
+  updateProfile: name => {
+    firestore().collection('users').doc(auth().currentUser.uid).update({
+      name: name,
+    });
   },
 };
 

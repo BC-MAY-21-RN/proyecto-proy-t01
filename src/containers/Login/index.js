@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 import {Formik} from 'formik';
-import {logInWithEmailAndPassword} from '../../components/helpers/firebaseSignUp';
-import {logInValidationSchema} from '../../constants/schemas/logInValidationSchema';
-import {span} from '../../i18n/es';
-import {onGoogleButtonPress} from '../../components/helpers/firebaseSignUp';
+import {span} from '../../library/i18n/es';
 import {
   TextInputField,
   CustomButton,
@@ -17,8 +14,12 @@ import {
   ButtonContainerLog,
   InputTextContainerLog,
 } from './styledComponents';
+import {logInValidationSchema} from '../../library/constants';
+import {firebaseMethods} from '../../library/methods';
+import { useAuthChecker } from '../../library/hooks';
 
-const LogIn = ({navigation}) => {
+export const LogIn = ({navigation}) => {
+  const {onGoogleButtonPress, logInWithEmailAndPassword} = firebaseMethods;
   const [authError, setAuthError] = useState(false);
   const handleLogIn = values => {
     const {email, password} = values;
@@ -26,6 +27,8 @@ const LogIn = ({navigation}) => {
       .then(() => setAuthError(false))
       .catch(() => setAuthError(true));
   };
+
+  useAuthChecker(navigation)
   return (
     <MainContainerLog>
       <TopContainerLog>
@@ -80,5 +83,3 @@ const LogIn = ({navigation}) => {
     </MainContainerLog>
   );
 };
-
-export default LogIn;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {DisabledButton, StyledButton, TextCustom} from './styledComponent';
 
-const CustomButton = ({isDisabled, text, onPress}) => {
+export const CustomButton = ({isDisabled, text, onPress}) => {
   if (isDisabled) {
     return (
       <DisabledButton>
@@ -16,5 +16,3 @@ const CustomButton = ({isDisabled, text, onPress}) => {
     );
   }
 };
-
-export default CustomButton;

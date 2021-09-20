@@ -1,17 +1,8 @@
-import LogIn from './LogIn';
-import SignUp from './SignUp/';
-import Home from './Home/';
-import Profile from './Profile/';
-import DogsDetails from './DogsDetails/';
-import Favorites from './Favorites';
-import OnboardingScreen from './Onboarding';
+export {LogIn} from "./LogIn"
+export {SignUp} from './SignUp';
+export {Home} from './Home';
+export {Profile} from './Profile';
+export {DogsDetails} from './DogsDetails';
+export {Favorites} from './Favorites';
+export {OnboardingScreen} from './Onboarding';
 
-export {
-  LogIn,
-  SignUp,
-  Home,
-  Profile,
-  DogsDetails,
-  Favorites,
-  OnboardingScreen as Onboarding,
-};

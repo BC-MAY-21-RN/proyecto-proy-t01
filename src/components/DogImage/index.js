@@ -1,5 +1,6 @@
 import React from 'react';
-import {span} from '../../i18n/es';
+import {span} from '../../library/i18n/es';
+import {dog, dog2} from '../../library/images';
 import {
   ImageContainer,
   StyledImage,
@@ -9,13 +10,11 @@ import {
   StyledChar,
 } from './styledComponent';
 
-const DogImage = ({isSignedUp}) => {
+export const DogImage = ({isSignedUp}) => {
   const vars = {
     mainTitle: isSignedUp ? 'adopt' : 'welcome',
     title: isSignedUp ? 'friend' : 'new',
-    img: isSignedUp
-      ? require('../../constants/img/dog.png')
-      : require('../../constants/img/dog2.png'),
+    img: isSignedUp ? dog : dog2,
   };
 
   return (
@@ -28,5 +27,3 @@ const DogImage = ({isSignedUp}) => {
     </ImageContainer>
   );
 };
-
-export default DogImage;

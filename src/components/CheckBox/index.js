@@ -1,13 +1,13 @@
 import React from 'react';
 import CheckBox from '@react-native-community/checkbox';
-import colors from '../../constants/colors';
+import { colors } from '../../library/constants';
 import {
   CheckBoxContainer,
   TextCustom,
   AlertTextCheckBox,
 } from './styledComponent';
 
-const CheckBoxField = ({
+export const CheckBoxField = ({
   setFieldValue,
   values,
   label,
@@ -30,5 +30,3 @@ const CheckBoxField = ({
     </CheckBoxContainer>
   );
 };
-
-export default CheckBoxField;

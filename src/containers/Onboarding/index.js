@@ -1,16 +1,16 @@
 import React from 'react';
 import Onboarding from 'react-native-onboarding-swiper';
-import {Button, Image, Text, TouchableOpacity, View} from 'react-native';
-import {MainContainer} from '../SignUp/styledComponents';
+import {Image} from 'react-native';
 import {
   SkipStyled,
   NextStyled,
   DoneButtonComponent,
   Dots,
 } from './styledComponent';
-import {Title} from 'react-native-paper';
+import {onboard1, onboard2, onboard3} from '../../library/images';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const OnboardingScreen = ({navigation}) => {
+export const OnboardingScreen = ({navigation}) => {
   return (
     <Onboarding
       SkipButtonComponent={SkipStyled}
@@ -19,41 +19,30 @@ const OnboardingScreen = ({navigation}) => {
       DotComponent={Dots}
       DoneButtonComponent={DoneButtonComponent}
       onSkip={() => navigation.replace('SignUp')}
-      onDone={() => navigation.navigate('SignUp')}
+      onDone={() => {
+        AsyncStorage.setItem('alreadyLaunched', 'true');
+        navigation.navigate('SignUp');
+      }}
       pages={[
         {
           backgroundColor: '#fff',
-          image: (
-            <Image
-              source={require('../../constants/img/Onboarding-Card-1.png')}
-            />
-          ),
-          title: null,
-          subtitle: null,
+          image: <Image source={onboard1} />,
+          title: '',
+          subtitle: '',
         },
         {
           backgroundColor: '#fff',
-          image: (
-            <Image
-              source={require('../../constants/img/Onboarding-Card-2.png')}
-            />
-          ),
-          title: null,
-          subtitle: null,
+          image: <Image source={onboard2} />,
+          title: '',
+          subtitle: '',
         },
         {
           backgroundColor: '#fff',
-          image: (
-            <Image
-              source={require('../../constants/img/Onboarding-Card-3.png')}
-            />
-          ),
-          title: null,
-          subtitle: null,
+          image: <Image source={onboard3} />,
+          title: '',
+          subtitle: '',
         },
       ]}
     />
   );
 };
-
-export default OnboardingScreen;

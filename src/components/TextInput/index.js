@@ -5,10 +5,10 @@ import {
   InputIcon,
   AlertText,
 } from './styledComponent';
-import color from '../../constants/colors';
+import { colors } from '../../library/constants';
 import {Text} from 'react-native';
 
-const TextInputField = props => {
+export const TextInputField = props => {
   const {
     label,
     icon,
@@ -29,7 +29,7 @@ const TextInputField = props => {
       <InputContainer>
         <TextInputCustom
           placeholder={label}
-          placeholderTextColor={color.ligh_grey}
+          placeholderTextColor={colors.ligh_grey}
           name={formControlName}
           onChangeText={handleChange(formControlName)}
           onBlur={handleBlur(formControlName)}
@@ -53,5 +53,3 @@ const TextInputField = props => {
     </>
   );
 };
-
-export default TextInputField;

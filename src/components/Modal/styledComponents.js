@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-import colors from './../../constants/colors';
-
+import { colors } from '../../library/constants';
 export const CenterView = styled.View`
   flex: 1;
   justify-content: center;

@@ -1,26 +1,12 @@
-import CheckBoxField from './CheckBox';
-import TextInputField from './TextInput';
-import TextLink from './TextLink';
-import CustomButton from './CustomButton';
-import DogCard from './DogCard';
-import DogImage from './DogImage';
-import LoadingPage from './LoadingModalSignup';
-import Filters from './Filters';
-import PetList from './PetList';
-import ShelterModal from './Modal';
-import Icons from './Icons';
-import ModalUser from './ModalUser';
-export {
-  Filters,
-  CheckBoxField,
-  TextInputField,
-  CustomButton,
-  TextLink,
-  DogImage,
-  LoadingPage,
-  DogCard,
-  PetList,
-  ShelterModal,
-  Icons,
-  ModalUser
-};
+
+export {CheckBoxField} from './CheckBox';
+export {CustomButton} from './CustomButton';
+export {DogCard} from './DogCard';
+export {DogImage} from './DogImage';
+export {Filters} from './Filters';
+export {Icons} from './Icons';
+export {LoadingPage} from './LoadingModalSignup';
+export {ModalUser} from './ModalUser';
+export {ShelterModal} from './Modal';
+export {TextInputField} from './TextInput';
+export {TextLink} from './TextLink';

@@ -3,7 +3,7 @@ import firestore from '@react-native-firebase/firestore';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {useEffect} from 'react';
 import {WEB_CLIENT_ID} from '@env';
-import {profileImg} from '../../constants/img';
+import {profileImg} from '../../library/constants/img';
 
 export const useGoogleConfiguration = () => {
   useEffect(() => {
@@ -110,14 +110,12 @@ export const getDogs = ({filter, validation, setDogsData}) => {
     });
 };
 
-export const handleUpdateProfile = (name) => {
-  firestore()
-  .collection('users')
-  .doc(auth().currentUser.uid)
-  .update({
+export const handleUpdateProfile = name => {
+  firestore().collection('users').doc(auth().currentUser.uid).update({
     name: name,
-  })
-}
+  });
+};
+
 export const getAllDogs = setDogsData => {
   firestore()
     .collection('smallDogs')

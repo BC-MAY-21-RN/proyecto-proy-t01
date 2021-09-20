@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import colors from '../../constants/colors';
+import {colors, nullBckg} from '../../library/constants';
 import {
   BottomView,
   CardContainer,
@@ -12,18 +12,14 @@ import {
   StyledImage,
   UpperView,
 } from './styledComponents';
-import {nullBckg} from '../../constants/img';
-import {likeDog} from '../helpers/firebaseSignUp';
-
-const DogCard = ({navigation, ...rest}) => {
+export const DogCard = ({navigation, likeDog, ...rest}) => {
   const dogsData = rest;
 
   return (
     <CardContainer
       onPress={() => {
         navigation.navigate('DogsDetails', {
-          name: dogsData.name,
-          shelterName: dogsData.shelter,
+          dog: {...dogsData},
         });
       }}>
       <ImageContainer>
@@ -37,9 +33,7 @@ const DogCard = ({navigation, ...rest}) => {
           <ShelterText>{dogsData ? dogsData.shelter : ''}</ShelterText>
           <HeartIcon>
             <Icon
-              onPress={() => {
-                likeDog(dogsData.name);
-              }}
+              onPress={() => likeDog(dogsData.name)}
               color={colors.red}
               name={dogsData.liked ? 'favorite' : 'favorite-border'}
               size={24}
@@ -50,5 +44,3 @@ const DogCard = ({navigation, ...rest}) => {
     </CardContainer>
   );
 };
-
-export default DogCard;
